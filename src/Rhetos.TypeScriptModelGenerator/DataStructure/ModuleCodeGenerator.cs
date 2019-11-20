@@ -10,7 +10,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
     [ExportMetadata(MefProvider.Implements, typeof(ModuleInfo))]
     public class ModuleCodeGenerator : ITypeScriptGeneratorPlugin
     {
-        public static readonly CsTag<ModuleInfo> Members = "Members";
+        public static readonly CsTag<ModuleInfo> Members = "TsMembers";
 
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {

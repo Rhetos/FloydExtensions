@@ -1,0 +1,41 @@
+﻿Module TsTest1
+{
+	Entity Entity1
+	{
+		ShortString Name;
+		LongString Description;
+	}
+	
+	Entity Entity2
+	{
+		ShortString Name;
+		LongString Description;
+		Reference Entity1;
+		
+		RowPermissions
+		{
+			Allow All 'context => item => true;';
+		}
+	}
+	
+	Browse Entity2Browse TsTest1.Entity2
+	{
+		Take Name;
+		Take Description;
+		Take Entity1Name 'Entity1.Name';
+		
+		ComposableFilterBy TheFilter '(items, repository, filter) => items.Where(x => x.Name.StartsWith(filter.NameStartsWith))';
+		FilterBy 'TsTest1.Entity2' '(repository, filter) => repository.TsTest1.Entity2Browse.Query().ToArray()';
+	}
+	
+	Parameter TheFilter
+	{
+		ShortString NameStartsWith;
+	}
+	
+	Action SaveEntity1 '(parameters, repository, userInfo) => {}'
+	{
+		ShortString Name;
+		LongString Description;
+	}
+}

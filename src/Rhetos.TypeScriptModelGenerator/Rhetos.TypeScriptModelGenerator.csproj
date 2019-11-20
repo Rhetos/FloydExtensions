@@ -83,6 +83,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="DataStructure\Properties\ReferencePropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\ShortStringPropertyCodeGenerator.cs" />
+    <Compile Include="TypeScriptFilterInfo.cs" />
     <Compile Include="TypeScriptGenerator.cs" />
     <Compile Include="TypeScriptGeneratorModuleConfiguration.cs" />
     <Compile Include="TypeScriptGeneratorInitialCodeGenerator.cs" />
