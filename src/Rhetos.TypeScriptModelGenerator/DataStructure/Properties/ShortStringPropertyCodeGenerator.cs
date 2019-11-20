@@ -10,6 +10,8 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
     [ExportMetadata(MefProvider.Implements, typeof(ShortStringPropertyInfo))]
     public class ShortStringPropertyCodeGenerator : ITypeScriptGeneratorPlugin
     {
+        public static readonly CsTag<PropertyInfo> AttributesTag = "TsAttributes";
+
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             codeBuilder.InsertPropertyCode((ShortStringPropertyInfo)conceptInfo, "string");

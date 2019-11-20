@@ -2,6 +2,7 @@
 using Rhetos.Compiler;
 using Rhetos.Dsl.DefaultConcepts;
 using Rhetos.TypeScriptModelGenerator.DataStructure;
+using Rhetos.TypeScriptModelGenerator.DataStructure.Properties;
 
 namespace Rhetos.TypeScriptModelGenerator
 {
@@ -15,6 +16,7 @@ namespace Rhetos.TypeScriptModelGenerator
         private static string Code(this PropertyInfo info, string type)
         {
             return $@"
+        {ShortStringPropertyCodeGenerator.AttributesTag.Evaluate(info)}
         {info.Name}: {type};";
         }
 

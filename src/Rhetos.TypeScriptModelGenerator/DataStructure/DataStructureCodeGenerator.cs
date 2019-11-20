@@ -38,114 +38,18 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         {
             DataStructureInfo info = (DataStructureInfo)conceptInfo;
             codeBuilder.InsertCode(Code(info), ModuleCodeGenerator.Members, info.Module);
-            codeBuilder.InsertCode("IRhetosStructure", ImplementsTag, info);
         }
 
         private static string Code(DataStructureInfo info)
         {
             return $@"
+    @Module('{info.Module.Name}')
+    @Structure('{info.Name}')
     {AttributesTag.Evaluate(info)} 
-    export class {info.Name} {ImplementsTag.Evaluate(info)} {{
-        get moduleName(): string {{ return '{info.Module.Name}';}}
-        get structureName(): string {{ return '{info.Name}';}}
+    export class {info.Name} extends RhetosStructureBase {ImplementsTag.Evaluate(info)} {{
         {MembersTag.Evaluate(info)}
     }}
 ";
         }
     }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(EntityInfo))]
-    public class EntityCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (DataStructureInfo) conceptInfo;
-            codeBuilder.InsertIdProprety(info);
-            codeBuilder.InsertCode("IRhetosEntity", DataStructureCodeGenerator.ImplementsTag, info);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(BrowseDataStructureInfo))]
-    public class BrowseCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertIdProprety(info);
-            codeBuilder.InsertCode("IRhetosQueryableStructure", DataStructureCodeGenerator.ImplementsTag, info);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(SqlQueryableInfo))]
-    public class SqlQueryableCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertIdProprety(info);
-            codeBuilder.InsertCode("IRhetosQueryableStructure", DataStructureCodeGenerator.ImplementsTag, info);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(ComputedInfo))]
-    public class ComputedCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertIdProprety(info);
-            codeBuilder.InsertCode("IRhetosQueryableStructure", DataStructureCodeGenerator.ImplementsTag, info);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(QueryableExtensionInfo))]
-    public class QueryableExtensionCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertIdProprety(info);
-            codeBuilder.InsertCode("IRhetosQueryableStructure", DataStructureCodeGenerator.ImplementsTag, info);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(ActionInfo))]
-    public class ActionCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertCode("IRhetosAction", DataStructureCodeGenerator.ImplementsTag, info);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(TypeScriptFilterInfo))]
-    public class FilterCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (TypeScriptFilterInfo)conceptInfo;
-            codeBuilder.InsertCode("IRhetosFilterParameter", DataStructureCodeGenerator.ImplementsTag, info.DataStructure);
-        }
-    }
-
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(RowPermissionsReadInfo))]
-    public class RowPermissionCodeGenerator : ITypeScriptGeneratorPlugin
-    {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
-        {
-            var info = (RowPermissionsReadInfo)conceptInfo;
-            codeBuilder.InsertCode(@"@HasReadRowPermissions
-    ", DataStructureCodeGenerator.AttributesTag, info.Source);
-        }
-    }
-
 }
