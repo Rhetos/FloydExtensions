@@ -21,7 +21,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         private static string Code(ModuleInfo info)
         {
             return $@"
-namespace {info.Name} {{
+export namespace {info.Name} {{
 {Members.Evaluate(info)}
 }}
 ";

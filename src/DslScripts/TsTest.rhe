@@ -2,13 +2,13 @@
 {
 	Entity Entity1
 	{
-		ShortString Name;
+		ShortString Name {Required;}
 		LongString Description;
 	}
 	
 	Entity Entity2
 	{
-		ShortString Name;
+		ShortString Name {Required; RegexMatch "\d{1,15}" "Matični broj (MB) mora sadržavati isključivo znamenke.";}
 		LongString Description;
 		Reference Entity1;
 		

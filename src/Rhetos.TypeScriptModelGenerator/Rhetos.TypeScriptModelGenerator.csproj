@@ -99,6 +99,8 @@
     <Compile Include="ITypeScriptGeneratorPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleAssemblySource.cs" />
+    <Compile Include="Validations\RegexMatchPropertyCodeGenerator.cs" />
+    <Compile Include="Validations\RequiredPropertyCodeGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
