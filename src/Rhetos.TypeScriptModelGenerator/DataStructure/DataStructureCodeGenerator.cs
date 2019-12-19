@@ -20,6 +20,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
             DataStructureInfo info = (DataStructureInfo)conceptInfo;
             codeBuilder.InsertCode(Code(info), ModuleCodeGenerator.Members, info.Module);
             codeBuilder.InsertCode($"id: '{info.Module.Name}/{info.Name}'", StructureMetaDataTag, info);
+            codeBuilder.InsertCode($"'{info.Module.Name}/{info.Name}': {info.Module.Name}.{info.Name}", TypeScriptGeneratorInitialCodeGenerator.TypeMapping, new TsBodyInfo());
         }
 
         private static string Code(DataStructureInfo info)
