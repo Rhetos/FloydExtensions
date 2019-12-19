@@ -75,7 +75,6 @@
     <Compile Include="DataStructure\BrowseCodeGenerator.cs" />
     <Compile Include="DataStructure\ComputedCodeGenerator.cs" />
     <Compile Include="DataStructure\EntityCodeGenerator.cs" />
-    <Compile Include="DataStructure\FilterCodeGenerator.cs" />
     <Compile Include="DataStructure\ModuleCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\BoolPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\DatePropertyCodeGenerator.cs" />
@@ -85,13 +84,13 @@
     <Compile Include="DataStructure\Properties\IntegerPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\LongStringPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\MoneyPropertyCodeGenerator.cs" />
+    <Compile Include="DataStructure\Properties\PropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\QueryableExtensionCodeGenerator.cs" />
     <Compile Include="DataStructure\RowPermissionCodeGenerator.cs" />
     <Compile Include="DataStructure\SqlQueryableCodeGenerator.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="DataStructure\Properties\ReferencePropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\ShortStringPropertyCodeGenerator.cs" />
-    <Compile Include="TypeScriptFilterInfo.cs" />
     <Compile Include="TypeScriptGenerator.cs" />
     <Compile Include="TypeScriptGeneratorModuleConfiguration.cs" />
     <Compile Include="TypeScriptGeneratorInitialCodeGenerator.cs" />

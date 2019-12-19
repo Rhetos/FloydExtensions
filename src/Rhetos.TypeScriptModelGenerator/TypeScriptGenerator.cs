@@ -29,53 +29,29 @@ namespace Rhetos.TypeScriptModelGenerator
             _performanceLogger = logProvider.GetLogger("Performance");
         }
 
-        const string detectLineTag = @"\n\s*/\*.*?\*/\s*\r?\n";
-        const string detectTag = @"/\*.*?\*/";
-        const string detectLastComma = "},\r\n    ];\r\n\r\n";
-        const string detectLastComma2 = "},\r\n            ],\r\n";
-        const string detectLastComma3 = "],\r\n        };\r\n";
-        const string detectLastComma4 = "},\r\n        ];";
+        const string DetectLineTag = @"\n\s*/\*.*?\*/\s*\r?\n";
+        const string DetectTag = @"/\*.*?\*/";
+        const string DetectLastComma = "},\r\n    ];\r\n\r\n";
+        const string DetectLastComma2 = "},\r\n            ],\r\n";
+        const string DetectLastComma3 = "],\r\n        };\r\n";
+        const string DetectLastComma4 = "},\r\n        ];";
 
-        public IEnumerable<string> Dependencies
-        {
-            get { return null; }
-        }
-
-        private static void CompileFileTS()
-        {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C cd /d " + Paths.ResourcesFolder + "/AdminGuiCompile/scripts" + " & tsc";
-            process.StartInfo = startInfo;
-            process.Start();
-            process.WaitForExit();
-        }
-        private static void CopyCompiledFile()
-        {
-            string sourceFile = Path.Combine(Paths.ResourcesFolder + "/AdminGuiCompile/dist/admingui.js");
-            string destinationFile = Path.Combine(Paths.ResourcesFolder + "/AdminGui/js/admingui.js");
-            File.Copy(sourceFile, destinationFile, true);
-        }
+        public IEnumerable<string> Dependencies => null;
 
         public void Generate()
         {
             var sw = Stopwatch.StartNew();
             SimpleAssemblySource assemblySource = GenerateSource();
 
-            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, detectLineTag, "\n");
-            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, detectTag, "");
-            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, detectLastComma, "}\r\n    ];\r\n\r\n");
-            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, detectLastComma2, "}\r\n            ],\r\n");
-            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, detectLastComma3, "]\r\n        };\r\n");
-            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, detectLastComma4, "}\r\n        ];");
+            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLineTag, "\n");
+            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectTag, "");
+            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLastComma, "}\r\n    ];\r\n\r\n");
+            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLastComma2, "}\r\n            ],\r\n");
+            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLastComma3, "]\r\n        };\r\n");
+            assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLastComma4, "}\r\n        ];");
 
             string sourceFile = Path.Combine(Paths.GeneratedFolder + @"\RhetosModel.ts");
             File.WriteAllText(sourceFile, assemblySource.GeneratedCode);
-
-            //            CompileFileTS();
-            //            CopyCompiledFile();
 
             _performanceLogger.Write(sw, "TypeScriptGenerator.Generate");
         }

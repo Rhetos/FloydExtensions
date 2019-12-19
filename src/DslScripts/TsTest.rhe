@@ -38,4 +38,9 @@
 		ShortString Name;
 		LongString Description;
 	}
+	
+	Parameter TheParameter
+	{
+		ShortString NameStartsWith;
+	}
 }

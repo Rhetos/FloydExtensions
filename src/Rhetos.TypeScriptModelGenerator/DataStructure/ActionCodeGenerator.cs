@@ -13,7 +13,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             var info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertCode("IRhetosAction", DataStructureCodeGenerator.ImplementsTag, info);
+            codeBuilder.InsertServiceType(info, "Action");
         }
     }
 }

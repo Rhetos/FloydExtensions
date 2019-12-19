@@ -8,8 +8,7 @@ namespace Rhetos.TypeScriptModelGenerator
         [Export(typeof(Module))]
         protected override void Load(ContainerBuilder builder)
         {
-            Rhetos.Extensibility.Plugins.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>(builder);
-
+            Extensibility.Plugins.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>(builder);
             base.Load(builder);
         }
     }

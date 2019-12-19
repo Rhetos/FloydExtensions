@@ -15,7 +15,7 @@ namespace Rhetos.TypeScriptModelGenerator.Validations
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             var info = (RequiredPropertyInfo)conceptInfo;
-            codeBuilder.InsertCode("required: true", ShortStringPropertyCodeGenerator.PropertyMetaDataTag, info.Property);
+            codeBuilder.InsertCode("required: true", PropertyCodeGenerator.PropertyMetaDataTag, info.Property);
         }
     }
 }

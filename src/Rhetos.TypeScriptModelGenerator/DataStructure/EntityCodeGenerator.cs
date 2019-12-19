@@ -3,6 +3,7 @@ using Rhetos.Compiler;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
 using Rhetos.Extensibility;
+using Rhetos.TypeScriptModelGenerator.DataStructure.Properties;
 
 namespace Rhetos.TypeScriptModelGenerator.DataStructure
 {
@@ -14,7 +15,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         {
             var info = (DataStructureInfo) conceptInfo;
             codeBuilder.InsertIdProprety(info);
-            codeBuilder.InsertCode("IRhetosEntity", DataStructureCodeGenerator.ImplementsTag, info);
+            codeBuilder.InsertServiceType(info, "Entity");
         }
     }
 }
