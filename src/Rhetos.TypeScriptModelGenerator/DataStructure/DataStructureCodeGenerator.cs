@@ -31,21 +31,23 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
     {
         public static readonly CsTag<DataStructureInfo> MembersTag = "TsProperties";
         public static readonly CsTag<DataStructureInfo> ImplementsTag = new CsTag<DataStructureInfo>("TsImplements", TagType.Appendable, "implements {0}", ", {0}");
-        public static readonly CsTag<DataStructureInfo> AttributesTag = "TsAttributes";
+        public static readonly CsTag<DataStructureInfo> StructureMetaDataTag = new CsTag<DataStructureInfo>("TsStructureMetaData", TagType.Appendable, "{0}", @", 
+        {0}");
 
 
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             DataStructureInfo info = (DataStructureInfo)conceptInfo;
             codeBuilder.InsertCode(Code(info), ModuleCodeGenerator.Members, info.Module);
+            codeBuilder.InsertCode($"id: '{info.Module.Name}/{info.Name}'", StructureMetaDataTag, info);
         }
 
         private static string Code(DataStructureInfo info)
         {
             return $@"
-    @Module('{info.Module.Name}')
-    @Structure('{info.Name}')
-    {AttributesTag.Evaluate(info)} 
+    @Structure({{
+        {StructureMetaDataTag.Evaluate(info)}
+    }})
     export class {info.Name} extends RhetosStructureBase {ImplementsTag.Evaluate(info)} {{
         {MembersTag.Evaluate(info)}
     }}

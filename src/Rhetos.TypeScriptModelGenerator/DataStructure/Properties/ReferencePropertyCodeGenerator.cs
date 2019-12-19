@@ -12,7 +12,9 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
     {
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
+            var info = (ReferencePropertyInfo) conceptInfo;
             codeBuilder.InsertPropertyCode((ReferencePropertyInfo)conceptInfo, "string", "ID");
+            codeBuilder.InsertCode($"referenceId: '{info.Referenced.Module.Name}/{info.Referenced.Name}'}}", ShortStringPropertyCodeGenerator.PropertyMetaDataTag, info);
         }
     }
 }

@@ -14,8 +14,8 @@ namespace Rhetos.TypeScriptModelGenerator.Validations
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             var info = (RegExMatchInfo)conceptInfo;
-            codeBuilder.InsertCode($@"@RegexMatch('{info.RegularExpression}','{info.ErrorMessage}')
-        ", ShortStringPropertyCodeGenerator.AttributesTag, info.Property);
+            codeBuilder.InsertCode($"regex: '{info.RegularExpression}'", ShortStringPropertyCodeGenerator.PropertyMetaDataTag, info.Property);
+            codeBuilder.InsertCode($"regexMessage: '{info.ErrorMessage}'", ShortStringPropertyCodeGenerator.PropertyMetaDataTag, info.Property);
         }
     }
 }

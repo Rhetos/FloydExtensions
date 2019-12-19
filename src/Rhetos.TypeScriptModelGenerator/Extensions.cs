@@ -14,13 +14,17 @@ namespace Rhetos.TypeScriptModelGenerator
         public static void InsertPropertyCode(this ICodeBuilder codeBuilder, PropertyInfo info, string type, string nameSufix = "")
         {
             codeBuilder.InsertCode(info.Code(type, nameSufix), DataStructureCodeGenerator.MembersTag, info.DataStructure);
+            var rhetosType = info.GetType().RhetosKeyword();
+            codeBuilder.InsertCode($"type: '{rhetosType}'", ShortStringPropertyCodeGenerator.PropertyMetaDataTag, info);
         }
 
         private static string Code(this PropertyInfo info, string type, string nameSufix = "")
         {
             return $@"
-        {ShortStringPropertyCodeGenerator.AttributesTag.Evaluate(info)}
-        @RhetosType(RhetosType.{info.GetType().RhetosKeyword()})
+
+        @Property({{
+            {ShortStringPropertyCodeGenerator.PropertyMetaDataTag.Evaluate(info)}
+        }})
         {info.Name}{nameSufix}: {type};";
         }
 
