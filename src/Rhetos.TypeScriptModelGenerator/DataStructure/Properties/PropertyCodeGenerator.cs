@@ -10,11 +10,12 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
     public static class PropertyCodeGenerator
     {
         public static readonly CsTag<PropertyInfo> PropertyMetaDataTag = new CsTag<PropertyInfo>("TsPropertyMetaData", TagType.Appendable, "{0}", @", 
-            {0}");
+                    {0}");
 
         public static void InsertPropertyCode(this ICodeBuilder codeBuilder, PropertyInfo info, string type, string nameSufix = "")
         {
             codeBuilder.InsertCode(info.Code(type, nameSufix), DataStructureCodeGenerator.MembersTag, info.DataStructure);
+            codeBuilder.InsertCode(info.MetaData(type, nameSufix), DataStructureCodeGenerator.PropertiesMetaDataTag, info.DataStructure);
             var rhetosType = info.GetType().RhetosKeyword();
             codeBuilder.InsertCode($"type: '{rhetosType}'", PropertyMetaDataTag, info);
         }
@@ -22,11 +23,15 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
         private static string Code(this PropertyInfo info, string type, string nameSufix = "")
         {
             return $@"
-
-        @Property({{
-            {PropertyMetaDataTag.Evaluate(info)}
-        }})
         {info.Name}{nameSufix}: {type};";
+        }
+
+        private static string MetaData(this PropertyInfo info, string type, string nameSufix = "")
+        {
+            return $@"
+                {info.Name}{nameSufix}: {{
+                    {PropertyMetaDataTag.Evaluate(info)}
+                }}";
         }
 
         public static void InsertIdProprety(this ICodeBuilder codeBuilder, DataStructureInfo info)

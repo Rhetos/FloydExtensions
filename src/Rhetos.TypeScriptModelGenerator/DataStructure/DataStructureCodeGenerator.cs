@@ -11,28 +11,35 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
     public class DataStructureCodeGenerator : ITypeScriptGeneratorPlugin
     {
         public static readonly CsTag<DataStructureInfo> MembersTag = "TsProperties";
-        public static readonly CsTag<DataStructureInfo> ImplementsTag = new CsTag<DataStructureInfo>("TsImplements", TagType.Appendable, "implements {0}", ", {0}");
-        public static readonly CsTag<DataStructureInfo> StructureMetaDataTag = new CsTag<DataStructureInfo>("TsStructureMetaData", TagType.Appendable, "{0}", @", 
-        {0}");
+        public static readonly CsTag<DataStructureInfo> ImplementsTag = new CsTag<DataStructureInfo>("TsImplements", TagType.Appendable, "extends {0}", ", {0}");
+        public static readonly CsTag<DataStructureInfo> StructureMetaDataTag = new CsTag<DataStructureInfo>("TsStructureMetaDataTag", TagType.Appendable, "{0}", @", {0}");
+        public static readonly CsTag<DataStructureInfo> PropertiesMetaDataTag = new CsTag<DataStructureInfo>("TsPropertiesMetaDataTag", TagType.Appendable, "{0}", @", {0}");
 
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             DataStructureInfo info = (DataStructureInfo)conceptInfo;
-            codeBuilder.InsertCode(Code(info), ModuleCodeGenerator.Members, info.Module);
-            codeBuilder.InsertCode($"id: '{info.Module.Name}/{info.Name}'", StructureMetaDataTag, info);
-            codeBuilder.InsertCode($"'{info.Module.Name}/{info.Name}': {info.Module.Name}.{info.Name}", TypeScriptGeneratorInitialCodeGenerator.TypeMapping, new TsBodyInfo());
+            codeBuilder.InsertCode(Code(info), ModuleCodeGenerator.MembersTag, info.Module);
+            codeBuilder.InsertCode(MetaData(info), ModuleCodeGenerator.MetaDataTag, info.Module);
+            codeBuilder.InsertCode($"key: '{info.Module.Name}/{info.Name}'", StructureMetaDataTag, info);
         }
 
         private static string Code(DataStructureInfo info)
         {
             return $@"
-    @Structure({{
-        {StructureMetaDataTag.Evaluate(info)}
-    }})
-    export class {info.Name} extends RhetosStructureBase {ImplementsTag.Evaluate(info)} {{
-        {MembersTag.Evaluate(info)}
+    export const {info.Name}Key = '{info.Module.Name}/{info.Name}';
+    export interface {info.Name} {ImplementsTag.Evaluate(info)} {{{MembersTag.Evaluate(info)}
     }}
 ";
+        }
+
+        private static string MetaData(DataStructureInfo info)
+        {
+            return $@"
+        '{info.Module.Name}/{info.Name}':{{
+            {StructureMetaDataTag.Evaluate(info)},
+            properties: {{{PropertiesMetaDataTag.Evaluate(info)}
+            }}
+        }}";
         }
     }
 }

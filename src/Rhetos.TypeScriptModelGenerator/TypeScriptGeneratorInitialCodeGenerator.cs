@@ -10,8 +10,6 @@ namespace Rhetos.TypeScriptModelGenerator
     public class TypeScriptGeneratorInitialCodeGenerator : ITypeScriptGeneratorPlugin
     {
         public static readonly CsTag<TsBodyInfo> Members = "TsMembers";
-        public static readonly CsTag<TsBodyInfo> TypeMapping = new CsTag<TsBodyInfo>("TsTypeMapping", TagType.Appendable, "{0}", @", 
-    {0}");
 
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
@@ -19,12 +17,8 @@ namespace Rhetos.TypeScriptModelGenerator
         }
         private readonly string _codeSnippet =
             $@"
-import {{ RhetosDataStructure }} from '@omega-ng/rhetos';
+import {{ StructureMetadataMap }} from '@floyd-ng/rhetos';
 {Members.Evaluate(new TsBodyInfo())}
-
-export const typeMapping: {{ [key: string]: typeof RhetosStructureBase }} = {{
-    {TypeMapping.Evaluate(new TsBodyInfo())}
-}};
 ";
     }
 

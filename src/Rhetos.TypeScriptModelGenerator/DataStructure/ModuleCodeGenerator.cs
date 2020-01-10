@@ -10,7 +10,8 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
     [ExportMetadata(MefProvider.Implements, typeof(ModuleInfo))]
     public class ModuleCodeGenerator : ITypeScriptGeneratorPlugin
     {
-        public static readonly CsTag<ModuleInfo> Members = "TsModuleMembers";
+        public static readonly CsTag<ModuleInfo> MembersTag = "TsModuleMembers";
+        public static readonly CsTag<ModuleInfo> MetaDataTag = new CsTag<ModuleInfo>("TsModuleMetaDataTag", TagType.Appendable, "{0}", @", {0}");
 
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
@@ -21,8 +22,10 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         private static string Code(ModuleInfo info)
         {
             return $@"
-export namespace {info.Name} {{
-{Members.Evaluate(info)}
+export module {info.Name} {{
+    export const _metadataMap: StructureMetadataMap = {{{MetaDataTag.Evaluate(info)}
+    }}
+{MembersTag.Evaluate(info)}
 }}
 ";
         }
