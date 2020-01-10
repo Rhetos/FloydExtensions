@@ -27,7 +27,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         {
             return $@"
     export const {info.Name}Key = '{info.Module.Name}/{info.Name}';
-    export interface {info.Name} {ImplementsTag.Evaluate(info)} {{{MembersTag.Evaluate(info)}
+    export interface {info.Name} {ImplementsTag.Evaluate(info)}{{{MembersTag.Evaluate(info)}
     }}
 ";
         }
@@ -35,7 +35,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         private static string MetaData(DataStructureInfo info)
         {
             return $@"
-        '{info.Module.Name}/{info.Name}':{{
+        '{info.Module.Name}/{info.Name}': {{
             {StructureMetaDataTag.Evaluate(info)},
             properties: {{{PropertiesMetaDataTag.Evaluate(info)}
             }}

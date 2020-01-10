@@ -16,8 +16,7 @@ namespace Rhetos.TypeScriptModelGenerator
             codeBuilder.InsertCode(_codeSnippet);
         }
         private readonly string _codeSnippet =
-            $@"
-import {{ StructureMetadataMap }} from '@floyd-ng/rhetos';
+            $@"import {{ StructureMetadataMap }} from '@floyd-ng/rhetos';
 {Members.Evaluate(new TsBodyInfo())}
 ";
     }
