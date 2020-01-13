@@ -42,7 +42,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 
         public static string RhetosKeyword(this Type type)
         {
-            var attr = type.GetCustomAttribute<ConceptKeywordAttribute>(false);
+            var attr = type.GetCustomAttribute<ConceptKeywordAttribute>(true);
             return attr?.Keyword;
         }
     }

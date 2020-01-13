@@ -4,6 +4,11 @@
 	{
 		ShortString Name {Required;}
 		LongString Description;
+		
+		Is TsTest1.ThePolymorphic "Entity1ThePolymorphicImplementation"
+		{
+			Implements TsTest1.ThePolymorphic.Name "Name";
+		}
 	}
 	
 	Entity Entity2
@@ -43,4 +48,10 @@
 	{
 		ShortString NameStartsWith;
 	}
+	
+	Polymorphic ThePolymorphic
+	{
+		ShortString Name;
+	}
+	
 }
