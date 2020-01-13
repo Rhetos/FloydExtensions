@@ -8,11 +8,12 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 {
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(DateTimePropertyInfo))]
-    public class DateTimePropertyCodeGenerator : ITypeScriptGeneratorPlugin
+    public class DateTimePropertyCodeGenerator : PropertyCodeGenerator
     {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
+        protected override string JavaScriptType => "Date";
+
+        public DateTimePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
-            codeBuilder.InsertPropertyCode((DateTimePropertyInfo)conceptInfo, "Date");
         }
     }
 }

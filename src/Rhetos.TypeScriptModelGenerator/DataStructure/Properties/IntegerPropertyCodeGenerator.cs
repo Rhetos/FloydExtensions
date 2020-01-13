@@ -8,11 +8,12 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 {
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(IntegerPropertyInfo))]
-    public class IntegerPropertyCodeGenerator : ITypeScriptGeneratorPlugin
+    public class IntegerPropertyCodeGenerator : PropertyCodeGenerator
     {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
+        protected override string JavaScriptType => "number";
+
+        public IntegerPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
-            codeBuilder.InsertPropertyCode((IntegerPropertyInfo)conceptInfo, "number");
         }
     }
 }

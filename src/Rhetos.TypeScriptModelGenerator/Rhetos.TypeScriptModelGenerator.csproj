@@ -85,6 +85,7 @@
     <Compile Include="DataStructure\Properties\LongStringPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\MoneyPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\PropertyCodeGenerator.cs" />
+    <Compile Include="DataStructure\Properties\PropertyCodeGeneratorExtensions.cs" />
     <Compile Include="DataStructure\QueryableExtensionCodeGenerator.cs" />
     <Compile Include="DataStructure\RowPermissionCodeGenerator.cs" />
     <Compile Include="DataStructure\SqlQueryableCodeGenerator.cs" />

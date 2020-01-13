@@ -8,13 +8,21 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 {
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(ReferencePropertyInfo))]
-    public class ReferencePropertyCodeGenerator : ITypeScriptGeneratorPlugin
+    public class ReferencePropertyCodeGenerator : PropertyCodeGenerator
     {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
+        protected override string JavaScriptType => "string";
+
+        protected override string NameSufix => "ID";
+
+        public override void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
+            base.GenerateCode(conceptInfo, codeBuilder);
             var info = (ReferencePropertyInfo) conceptInfo;
-            codeBuilder.InsertPropertyCode((ReferencePropertyInfo)conceptInfo, "string", "ID");
-            codeBuilder.InsertCode($"referenceKey: '{info.Referenced.Module.Name}/{info.Referenced.Name}'", PropertyCodeGenerator.PropertyMetaDataTag, info);
+            codeBuilder.InsertCode($"referenceKey: '{info.Referenced.Module.Name}/{info.Referenced.Name}'", PropertyMetaDataTag, info);
+        }
+
+        public ReferencePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
+        {
         }
     }
 }

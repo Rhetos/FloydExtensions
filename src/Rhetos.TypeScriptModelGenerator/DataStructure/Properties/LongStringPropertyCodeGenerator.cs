@@ -8,11 +8,12 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 {
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(LongStringPropertyInfo))]
-    public class LongStringPropertyCodeGenerator : ITypeScriptGeneratorPlugin
+    public class LongStringPropertyCodeGenerator : PropertyCodeGenerator
     {
-        public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
+        protected override string JavaScriptType => "string";
+
+        public LongStringPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
-            codeBuilder.InsertPropertyCode((LongStringPropertyInfo)conceptInfo, "string");
         }
     }
 }
