@@ -54,4 +54,12 @@
 		ShortString Name;
 	}
 	
+	Function CreateEntity TsTest1.Entity1 ' (parameters, repository, userInfo) =>
+	{
+		return new TsTest1.Entity1();
+	}'
+	{
+		ShortString Name;
+	}
+	
 }

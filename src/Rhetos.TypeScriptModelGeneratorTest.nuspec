@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Rhetos.TypeScriptModelGenerator</id>
+    <id>Rhetos.TypeScriptModelGeneratorTest</id>
     <version>1.4.0-dev</version>
     <authors>Omega software</authors>
     <owners>Omega software</owners>
@@ -16,8 +16,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Rhetos.TypeScriptModelGenerator\bin\Debug\Rhetos.TypeScriptModelGenerator.dll" target="lib\net472" />
-    <file src="Rhetos.TypeScriptModelGenerator\bin\Debug\Rhetos.TypeScriptModelGenerator.pdb" target="lib\net472" />
-    <file src="..\Readme.md" target="" />
+    <file src="DslScripts\**\*" target="DslScripts" />
   </files>
 </package>
