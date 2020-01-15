@@ -8,8 +8,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 {
     public abstract class PropertyCodeGenerator : ITypeScriptGeneratorPlugin
     {
-        public static readonly CsTag<PropertyInfo> PropertyMetaDataTag = new CsTag<PropertyInfo>("TsPropertyMetaData", TagType.Appendable, "{0}", @", 
-                {0}");
+        public static readonly CsTag<PropertyInfo> PropertyMetaDataTag = new CsTag<PropertyInfo>("TsPropertyMetaData", TagType.Appendable, "{0}", @", {0}");
 
         protected readonly IDslModel DslModel;
 

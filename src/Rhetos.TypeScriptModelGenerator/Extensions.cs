@@ -8,7 +8,7 @@ namespace Rhetos.TypeScriptModelGenerator
     {
         public static void InsertServiceType(this ICodeBuilder codeBuilder, DataStructureInfo info, string serviceType)
         {
-            codeBuilder.InsertCode($"serviceType: '{serviceType}'", DataStructureCodeGenerator.StructureMetaDataTag, info);
+            codeBuilder.InsertCode($@"\""serviceType\"": \""{serviceType}\""", DataStructureCodeGenerator.StructureMetaDataTag, info);
         }
     }
 }

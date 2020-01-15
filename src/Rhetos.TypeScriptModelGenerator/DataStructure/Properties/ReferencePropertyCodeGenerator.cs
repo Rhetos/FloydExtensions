@@ -18,7 +18,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
         {
             base.GenerateCode(conceptInfo, codeBuilder);
             var info = (ReferencePropertyInfo) conceptInfo;
-            codeBuilder.InsertCode($"referenceKey: '{info.Referenced.Module.Name}/{info.Referenced.Name}'", PropertyMetaDataTag, info);
+            codeBuilder.InsertCode($@"\""referenceKey\"": \""{info.Referenced.Module.Name}/{info.Referenced.Name}\""", PropertyMetaDataTag, info);
         }
 
         public ReferencePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)

@@ -13,7 +13,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             var info = (RowPermissionsReadInfo)conceptInfo;
-            codeBuilder.InsertCode("hasReadRowPermissions: true", DataStructureCodeGenerator.StructureMetaDataTag, info.Source);
+            codeBuilder.InsertCode(@"\""hasReadRowPermissions\"": true", DataStructureCodeGenerator.StructureMetaDataTag, info.Source);
         }
     }
 }

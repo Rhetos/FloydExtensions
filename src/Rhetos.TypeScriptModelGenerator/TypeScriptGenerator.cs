@@ -58,7 +58,7 @@ namespace Rhetos.TypeScriptModelGenerator
 
             string jsonFile = Path.Combine(Paths.GeneratedFolder + @"\Metadata.json");
             var json = source[1];
-            json = json.Replace(@"\", @"\\");
+//            json = json.Replace(@"\", @"\\");
             File.WriteAllText(jsonFile, json);
 
             _performanceLogger.Write(sw, "TypeScriptGenerator.Generate");

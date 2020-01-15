@@ -12,8 +12,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
     {
         public static readonly CsTag<DataStructureInfo> MembersTag = "TsProperties";
         public static readonly CsTag<DataStructureInfo> ImplementsTag = new CsTag<DataStructureInfo>("TsImplements", TagType.Appendable, "extends {0}", ", {0}");
-        public static readonly CsTag<DataStructureInfo> StructureMetaDataTag = new CsTag<DataStructureInfo>("TsStructureMetaDataTag", TagType.Appendable, "{0}", @", 
-        {0}");
+        public static readonly CsTag<DataStructureInfo> StructureMetaDataTag = new CsTag<DataStructureInfo>("TsStructureMetaDataTag", TagType.Appendable, "{0}", @", {0}");
         public static readonly CsTag<DataStructureInfo> PropertiesMetaDataTag = new CsTag<DataStructureInfo>("TsPropertiesMetaDataTag", TagType.Appendable, "{0}", @", {0}");
 
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
@@ -21,7 +20,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
             DataStructureInfo info = (DataStructureInfo)conceptInfo;
             codeBuilder.InsertCode(Code(info), ModuleCodeGenerator.MembersTag, info.Module);
             codeBuilder.InsertCode(MetaData(info), TypeScriptGeneratorInitialCodeGenerator.StructureMetaDataTag, new TsBodyInfo());
-            codeBuilder.InsertCode($"key: '{info.Module.Name}/{info.Name}'", StructureMetaDataTag, info);
+            codeBuilder.InsertCode($@"\""key\"": \""{info.Module.Name}/{info.Name}\""", StructureMetaDataTag, info);
         }
 
         private static string Code(DataStructureInfo info)
@@ -35,12 +34,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure
 
         private static string MetaData(DataStructureInfo info)
         {
-            return $@"
-    ""{info.Module.Name}/{info.Name}"": ""{{
-        {StructureMetaDataTag.Evaluate(info)},
-        properties: {{{PropertiesMetaDataTag.Evaluate(info)}
-        }}
-    }}""";
+            return $@"""{info.Module.Name}/{info.Name}"": ""{{ {StructureMetaDataTag.Evaluate(info)}, \""properties\"": {{ {PropertiesMetaDataTag.Evaluate(info)} }} }}""";
         }
     }
 }

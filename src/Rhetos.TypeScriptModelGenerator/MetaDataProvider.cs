@@ -12,7 +12,7 @@ namespace Rhetos.TypeScriptModelGenerator
         {
             if (!_metadata.ContainsKey(key))
                 throw new UserException($"Metadata for model '{key}' does not exist.");
-
+            
             return _metadata[key];
         }
 

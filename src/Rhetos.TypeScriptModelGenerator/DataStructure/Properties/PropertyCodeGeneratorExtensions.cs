@@ -17,7 +17,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 
             codeBuilder.InsertCode(info.MetaData(type, nameSufix), DataStructureCodeGenerator.PropertiesMetaDataTag, info.DataStructure);
             
-            codeBuilder.InsertCode($"type: '{info.GetType().RhetosKeyword()}'", PropertyCodeGenerator.PropertyMetaDataTag, info);
+            codeBuilder.InsertCode($@"\""type\"": \""{info.GetType().RhetosKeyword()}\""", PropertyCodeGenerator.PropertyMetaDataTag, info);
         }
 
         private static string Code(this PropertyInfo info, string type, string nameSufix = "")
@@ -28,10 +28,7 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
 
         private static string MetaData(this PropertyInfo info, string type, string nameSufix = "")
         {
-            return $@"
-            '{info.Name}{nameSufix}': {{
-                {PropertyCodeGenerator.PropertyMetaDataTag.Evaluate(info)}
-            }}";
+            return $@"\""{info.Name}{nameSufix}\"": {{ {PropertyCodeGenerator.PropertyMetaDataTag.Evaluate(info)} }}";
         }
 
         public static void InsertIdProprety(this ICodeBuilder codeBuilder, DataStructureInfo info)
