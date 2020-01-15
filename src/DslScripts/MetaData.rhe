@@ -1,0 +1,21 @@
+﻿Module Common
+{
+	DataStructure StructureMetadata
+	{
+		LongString Value;
+	}
+	
+	Function GetStructureMetadata Common.StructureMetadata '(parameters, repository, userInfo) => 
+	{
+		return new Common.StructureMetadata
+		{
+			Value = _metadataProvider.GetStructureMetadata(parameters.Key)
+		};
+	}'
+	{
+		RepositoryUses '_metadataProvider' 'Rhetos.TypeScriptModelGenerator.MetadataProvider, Rhetos.TypeScriptModelGenerator';
+
+		ShortString Key;
+	}
+	
+}

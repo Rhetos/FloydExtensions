@@ -34,6 +34,10 @@
     <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Rhetos.Compiler.Interfaces, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.3.0.0\lib\net472\Rhetos.Compiler.Interfaces.dll</HintPath>
     </Reference>
@@ -92,6 +96,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="DataStructure\Properties\ReferencePropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\ShortStringPropertyCodeGenerator.cs" />
+    <Compile Include="MetadataProvider.cs" />
     <Compile Include="TypeScriptGenerator.cs" />
     <Compile Include="TypeScriptGeneratorModuleConfiguration.cs" />
     <Compile Include="TypeScriptGeneratorInitialCodeGenerator.cs" />

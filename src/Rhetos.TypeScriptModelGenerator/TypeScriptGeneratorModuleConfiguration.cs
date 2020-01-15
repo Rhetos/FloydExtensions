@@ -9,6 +9,7 @@ namespace Rhetos.TypeScriptModelGenerator
         protected override void Load(ContainerBuilder builder)
         {
             Extensibility.Plugins.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>(builder);
+            builder.RegisterType<MetadataProvider>().SingleInstance();
             base.Load(builder);
         }
     }
