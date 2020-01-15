@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.IO;
@@ -50,8 +51,15 @@ namespace Rhetos.TypeScriptModelGenerator
             assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLastComma3, "]\r\n        };\r\n");
             assemblySource.GeneratedCode = Regex.Replace(assemblySource.GeneratedCode, DetectLastComma4, "}\r\n        ];");
 
+            var source = assemblySource.GeneratedCode.Split(new[] {TypeScriptGeneratorInitialCodeGenerator.FileSplitTag}, StringSplitOptions.None);
+
             string sourceFile = Path.Combine(Paths.GeneratedFolder + @"\RhetosModel.ts");
-            File.WriteAllText(sourceFile, assemblySource.GeneratedCode);
+            File.WriteAllText(sourceFile, source[0]);
+
+            string jsonFile = Path.Combine(Paths.GeneratedFolder + @"\Metadata.json");
+            var json = source[1];
+            json = json.Replace(@"\", @"\\");
+            File.WriteAllText(jsonFile, json);
 
             _performanceLogger.Write(sw, "TypeScriptGenerator.Generate");
         }

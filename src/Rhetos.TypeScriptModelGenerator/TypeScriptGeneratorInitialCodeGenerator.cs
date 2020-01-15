@@ -9,15 +9,22 @@ namespace Rhetos.TypeScriptModelGenerator
     [ExportMetadata(MefProvider.Implements, typeof(InitializationConcept))]
     public class TypeScriptGeneratorInitialCodeGenerator : ITypeScriptGeneratorPlugin
     {
-        public static readonly CsTag<TsBodyInfo> Members = "TsMembers";
+        public static readonly CsTag<TsBodyInfo> TsMembersTag = "TsMembers";
+        public static readonly CsTag<TsBodyInfo> StructureMetaDataTag = new CsTag<TsBodyInfo>("StructureMetaDataTag", TagType.Appendable, "{0}", @", 
+    {0}");
 
+        public const string FileSplitTag = "--- File Split ---";
         public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             codeBuilder.InsertCode(_codeSnippet);
         }
         private readonly string _codeSnippet =
             $@"import {{ StructureMetadataMap }} from '@floyd-ng/rhetos';
-{Members.Evaluate(new TsBodyInfo())}
+{TsMembersTag.Evaluate(new TsBodyInfo())}
+{FileSplitTag}
+
+{{{StructureMetaDataTag.Evaluate(new TsBodyInfo())}
+}}
 ";
     }
 

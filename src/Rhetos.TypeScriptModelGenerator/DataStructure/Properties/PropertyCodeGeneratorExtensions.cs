@@ -29,9 +29,9 @@ namespace Rhetos.TypeScriptModelGenerator.DataStructure.Properties
         private static string MetaData(this PropertyInfo info, string type, string nameSufix = "")
         {
             return $@"
-                {info.Name}{nameSufix}: {{
-                    {PropertyCodeGenerator.PropertyMetaDataTag.Evaluate(info)}
-                }}";
+            '{info.Name}{nameSufix}': {{
+                {PropertyCodeGenerator.PropertyMetaDataTag.Evaluate(info)}
+            }}";
         }
 
         public static void InsertIdProprety(this ICodeBuilder codeBuilder, DataStructureInfo info)
