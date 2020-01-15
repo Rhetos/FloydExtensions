@@ -13,7 +13,7 @@
 		};
 	}'
 	{
-		RepositoryUses '_metadataProvider' 'Rhetos.TypeScriptModelGenerator.MetadataProvider, Rhetos.TypeScriptModelGenerator';
+		RepositoryUses '_metadataProvider' 'Rhetos.FloydExtensions.MetadataProvider, Rhetos.FloydExtensions';
 
 		ShortString Key;
 	}
