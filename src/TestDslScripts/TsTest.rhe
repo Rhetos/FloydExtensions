@@ -14,8 +14,11 @@
 	Entity Entity2
 	{
 		ShortString Name {Required; RegexMatch "\d{1,15}" "Matični broj (MB) mora sadržavati isključivo znamenke.";}
-		LongString Description;
+		LongString Description { MinLength "10"; MaxLength "1999"; }
 		Reference Entity1;
+		Integer Broj { MinValue "10"; MaxValue "100";}
+		Decimal DecimalniBroj { MinValue "0.01"; MaxValue "1";}
+		Date Datum { MinValue "2001-1-1"; MaxValue "2101-12-31";}
 		
 		RowPermissions
 		{
