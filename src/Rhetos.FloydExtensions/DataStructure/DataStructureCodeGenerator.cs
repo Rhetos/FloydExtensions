@@ -26,7 +26,7 @@ namespace Rhetos.FloydExtensions.DataStructure
         private static string Code(DataStructureInfo info)
         {
             return $@"
-    export const {info.Name}Key = '{info.Module.Name}/{info.Name}';
+    export const {info.Name}Info = createStructureInfo<{info.Module.Name}.{info.Name}>('{info.Module.Name}/{info.Name}');
     export interface {info.Name} {ImplementsTag.Evaluate(info)}{{{MembersTag.Evaluate(info)}
     }}
 ";
