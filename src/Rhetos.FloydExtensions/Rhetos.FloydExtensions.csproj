@@ -41,6 +41,10 @@
     <Reference Include="Rhetos.Compiler.Interfaces, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.3.0.0\lib\net472\Rhetos.Compiler.Interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Rhetos.Dom.DefaultConcepts.Interfaces, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Rhetos.CommonConcepts.3.0.0\lib\net472\Rhetos.Dom.DefaultConcepts.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Rhetos.Dsl.DefaultConcepts, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.CommonConcepts.3.0.0\lib\net472\Rhetos.Dsl.DefaultConcepts.dll</HintPath>
     </Reference>
@@ -55,6 +59,9 @@
     </Reference>
     <Reference Include="Rhetos.Logging.Interfaces, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.3.0.0\lib\net472\Rhetos.Logging.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhetos.Processing.DefaultCommands.Interfaces">
+      <HintPath>..\..\packages\Rhetos.CommonConcepts.3.0.0\lib\net472\Rhetos.Processing.DefaultCommands.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Rhetos.Utilities, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.3.0.0\lib\net472\Rhetos.Utilities.dll</HintPath>
@@ -75,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoApplyRowPermissionsFilterMacro.cs" />
     <Compile Include="DataStructure\ActionCodeGenerator.cs" />
     <Compile Include="DataStructure\BrowseCodeGenerator.cs" />
     <Compile Include="DataStructure\ComputedCodeGenerator.cs" />

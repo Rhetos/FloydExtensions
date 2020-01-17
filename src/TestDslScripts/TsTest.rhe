@@ -1,5 +1,7 @@
 ﻿Module TsTest1
 {
+	AutoInheritRowPermissions;
+	
 	Entity Entity1
 	{
 		ShortString Name {Required;}
