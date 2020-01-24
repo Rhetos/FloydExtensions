@@ -15,6 +15,7 @@ namespace Rhetos.FloydExtensions
         {
             var result = existingConcepts.FindByType<RowPermissionsReadInfo>()
                 .Where(rpr => rpr.Source.Module == moduleInfo)
+                .Where(rpr => existingConcepts.FindByKey($"ApplyFilterOnClientReadWhereInfo {rpr.Source.Module.Name}.{rpr.Source.Name}.'{rpr.Parameter}'") == null)
                 .Select(rpr => new ApplyFilterOnClientReadWhereInfo
                 {
                     DataStructure = rpr.Source,
