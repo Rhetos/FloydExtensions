@@ -5,7 +5,7 @@ using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
 using PropertyInfo = Rhetos.Dsl.DefaultConcepts.PropertyInfo;
 
-namespace Rhetos.FloydExtensions.DataStructure.Properties
+namespace Rhetos.FloydExtensions
 {
     public static class PropertyCodeGeneratorExtensions
     {

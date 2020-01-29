@@ -4,9 +4,8 @@ using Rhetos.ComplexEntity;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
 using Rhetos.Extensibility;
-using Rhetos.FloydExtensions.DataStructure.Properties;
 
-namespace Rhetos.FloydExtensions.DataStructure
+namespace Rhetos.FloydExtensions
 {
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(ComplexStructureInfo))]

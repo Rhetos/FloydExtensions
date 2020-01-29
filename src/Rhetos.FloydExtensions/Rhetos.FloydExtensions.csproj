@@ -45,7 +45,7 @@
     <Compile Include="AutoApplyRowPermissionsFilterMacro.cs" />
     <Compile Include="DataStructure\ActionCodeGenerator.cs" />
     <Compile Include="DataStructure\BrowseCodeGenerator.cs" />
-    <Compile Include="DataStructure\ComplexStructureCodeGenerator.cs" />
+    <Compile Include="ComplexStructure\ComplexStructureCodeGenerator.cs" />
     <Compile Include="DataStructure\ComputedCodeGenerator.cs" />
     <Compile Include="DataStructure\EntityCodeGenerator.cs" />
     <Compile Include="DataStructure\FunctionCodeGenerator.cs" />
@@ -104,5 +104,6 @@
       <Version>1.1.0-dev20012811306e79188</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

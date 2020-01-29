@@ -3,7 +3,7 @@ using Rhetos.Compiler;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
 
-namespace Rhetos.FloydExtensions.DataStructure.Properties
+namespace Rhetos.FloydExtensions
 {
     public abstract class PropertyCodeGenerator : ITypeScriptGeneratorPlugin
     {

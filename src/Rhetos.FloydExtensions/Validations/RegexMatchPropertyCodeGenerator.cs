@@ -3,9 +3,8 @@ using Rhetos.Compiler;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
 using Rhetos.Extensibility;
-using Rhetos.FloydExtensions.DataStructure.Properties;
 
-namespace Rhetos.FloydExtensions.Validations
+namespace Rhetos.FloydExtensions
 {
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(RegExMatchInfo))]
