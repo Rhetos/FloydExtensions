@@ -16,7 +16,7 @@ namespace Rhetos.FloydExtensions.DataStructure.Properties
             codeBuilder.InsertCode($@"
         {info.Name}?: {info.PropertyStructure.Module.Name}.{info.PropertyStructure.Name};", DataStructureCodeGenerator.MembersTag, info.DataStructure);
 
-            codeBuilder.InsertCode($@"\""{info.Name}\"": {{ \""type\"": \""Object\"" }}", DataStructureCodeGenerator.PropertiesMetaDataTag, info.DataStructure);
+            codeBuilder.InsertCode($@"\""{info.Name}\"": {{ \""type\"": \""Object\"",  \""keyOfComplexMember\"": \""{info.PropertyStructure.Module.Name}/{info.PropertyStructure.Name}\""}}", DataStructureCodeGenerator.PropertiesMetaDataTag, info.DataStructure);
         }
     }
 }
