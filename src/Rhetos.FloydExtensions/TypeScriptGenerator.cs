@@ -54,11 +54,14 @@ namespace Rhetos.FloydExtensions
             var source = assemblySource.GeneratedCode.Split(new[] {TypeScriptGeneratorInitialCodeGenerator.FileSplitTag}, StringSplitOptions.None);
 
             string sourceFile = Path.Combine(Paths.GeneratedFolder + @"\RhetosModel.ts");
-            File.WriteAllText(sourceFile, source[0]);
+            var typeScript = $@"/* tslint:disable:no-empty-interface class-name */
+
+{source[0]}
+";
+            File.WriteAllText(sourceFile, typeScript);
 
             string jsonFile = Path.Combine(Paths.GeneratedFolder + @"\Metadata.json");
             var json = source[1];
-//            json = json.Replace(@"\", @"\\");
             File.WriteAllText(jsonFile, json);
 
             _performanceLogger.Write(sw, "TypeScriptGenerator.Generate");

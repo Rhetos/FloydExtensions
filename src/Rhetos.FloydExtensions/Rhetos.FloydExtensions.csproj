@@ -38,8 +38,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Omu.ValueInjecter, Version=2.3.3.0, Culture=neutral, PublicKeyToken=c7694541b0ac80e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\valueinjecter.2.3.3\lib\net35\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
     <Reference Include="Rhetos.Compiler.Interfaces, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.3.0.0\lib\net472\Rhetos.Compiler.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhetos.ComplexEntity, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rhetos.ComplexEntity.1.1.0-dev20012811306e79188\lib\net451\Rhetos.ComplexEntity.dll</HintPath>
     </Reference>
     <Reference Include="Rhetos.Dom.DefaultConcepts.Interfaces, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -62,6 +68,9 @@
     </Reference>
     <Reference Include="Rhetos.Processing.DefaultCommands.Interfaces">
       <HintPath>..\..\packages\Rhetos.CommonConcepts.3.0.0\lib\net472\Rhetos.Processing.DefaultCommands.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhetos.RestGenerator, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rhetos.RestGenerator.2.5.0\lib\net451\Rhetos.RestGenerator.dll</HintPath>
     </Reference>
     <Reference Include="Rhetos.Utilities, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rhetos.3.0.0\lib\net472\Rhetos.Utilities.dll</HintPath>
@@ -94,8 +103,10 @@
     <Compile Include="DataStructure\Properties\DecimalPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\GuidPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\IntegerPropertyCodeGenerator.cs" />
+    <Compile Include="DataStructure\Properties\ListOfPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\LongStringPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\MoneyPropertyCodeGenerator.cs" />
+    <Compile Include="DataStructure\Properties\ObjectPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\PropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\PropertyCodeGeneratorExtensions.cs" />
     <Compile Include="DataStructure\QueryableExtensionCodeGenerator.cs" />

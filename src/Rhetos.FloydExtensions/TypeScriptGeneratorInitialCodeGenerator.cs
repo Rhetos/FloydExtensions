@@ -19,7 +19,7 @@ namespace Rhetos.FloydExtensions
             codeBuilder.InsertCode(_codeSnippet);
         }
         private readonly string _codeSnippet =
-            $@"import {{ StructureMetadataMap }} from '@floyd-ng/rhetos';
+            $@"import {{ createStructureInfo }} from '@floyd-ng/rhetos';
 {TsMembersTag.Evaluate(new TsBodyInfo())}
 {FileSplitTag}
 
