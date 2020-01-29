@@ -45,8 +45,10 @@
     <Compile Include="AutoApplyRowPermissionsFilterMacro.cs" />
     <Compile Include="DataStructure\ActionCodeGenerator.cs" />
     <Compile Include="DataStructure\BrowseCodeGenerator.cs" />
+    <Compile Include="DataStructure\ComplexStructureCodeGenerator.cs" />
     <Compile Include="DataStructure\ComputedCodeGenerator.cs" />
     <Compile Include="DataStructure\EntityCodeGenerator.cs" />
+    <Compile Include="DataStructure\FunctionCodeGenerator.cs" />
     <Compile Include="DataStructure\ModuleCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\BoolPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\DatePropertyCodeGenerator.cs" />
