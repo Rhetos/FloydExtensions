@@ -53,7 +53,7 @@ namespace Rhetos.FloydExtensions
 
             var source = assemblySource.GeneratedCode.Split(new[] {TypeScriptGeneratorInitialCodeGenerator.FileSplitTag}, StringSplitOptions.None);
 
-            string sourceFile = Path.Combine(Paths.GeneratedFolder + @"\RhetosModel.ts");
+            string sourceFile = Path.Combine(Paths.GeneratedFolder + @"\rhetos-model.ts");
             var typeScript = $@"/* tslint:disable:no-empty-interface class-name */
 
 {source[0]}
