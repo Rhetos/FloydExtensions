@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoApplyRowPermissionsFilterMacro.cs" />
-    <Compile Include="ComplexStructure\CreateGetCodeGenerator.cs" />
+    <Compile Include="ComplexStructure\ComplexSaveFunctionCodeGenerator.cs" />
+    <Compile Include="ComplexStructure\ComplexGetFunctionCodeGenerator.cs" />
     <Compile Include="DataStructure\ActionCodeGenerator.cs" />
     <Compile Include="DataStructure\BrowseCodeGenerator.cs" />
     <Compile Include="ComplexStructure\ComplexStructureCodeGenerator.cs" />
