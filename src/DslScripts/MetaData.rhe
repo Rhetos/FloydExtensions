@@ -9,13 +9,11 @@
 	{
 		return new Common.StructureMetadata
 		{
-			Value = _metadataProvider.GetStructureMetadata(parameters.Key)
+			Value = _metadataProvider.GetStructureMetadata()
 		};
 	}'
 	{
 		RepositoryUses '_metadataProvider' 'Rhetos.FloydExtensions.MetadataProvider, Rhetos.FloydExtensions';
-
-		ShortString Key;
 	}
 	
 }

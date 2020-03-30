@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
@@ -6,21 +7,15 @@ namespace Rhetos.FloydExtensions
 {
     public class MetadataProvider
     {
-        private readonly Dictionary<string, string> _metadata = Load();
+		private static readonly Lazy<string> Metadata = new Lazy<string>(() =>
+		{
+			var fileName = Path.Combine(Utilities.Paths.GeneratedFolder, "Metadata.json");
+			return File.ReadAllText(fileName);
+		});
 
-        public string GetStructureMetadata(string key)
+        public string GetStructureMetadata()
         {
-            if (!_metadata.ContainsKey(key))
-                throw new UserException($"Metadata for model '{key}' does not exist.");
-            
-            return _metadata[key];
-        }
-
-        private static Dictionary<string, string> Load()
-        {
-            var fileName = Path.Combine(Utilities.Paths.GeneratedFolder, "Metadata.json");
-            var json = File.ReadAllText(fileName);
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            return Metadata.Value;
         }
     }
 }
