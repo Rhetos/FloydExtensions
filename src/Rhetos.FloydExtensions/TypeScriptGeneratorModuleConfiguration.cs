@@ -3,9 +3,9 @@ using Autofac;
 
 namespace Rhetos.FloydExtensions
 {
+    [Export(typeof(Module))]
     public class TypeScriptGeneratorModuleConfiguration : Module
     {
-        [Export(typeof(Module))]
         protected override void Load(ContainerBuilder builder)
         {
             Extensibility.Plugins.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>(builder);

@@ -61,7 +61,7 @@ namespace Rhetos.FloydExtensions
             File.WriteAllText(sourceFile, typeScript);
 
             string jsonFile = Path.Combine(Paths.GeneratedFolder + @"\Metadata.json");
-            var json = source[1];
+            var json = source.Length > 1 ? source[1] : "";
             File.WriteAllText(jsonFile, json);
 
             _performanceLogger.Write(sw, "TypeScriptGenerator.Generate");
