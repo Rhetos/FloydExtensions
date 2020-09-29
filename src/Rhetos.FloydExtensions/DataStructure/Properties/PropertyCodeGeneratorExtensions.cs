@@ -34,7 +34,7 @@ namespace Rhetos.FloydExtensions
         public static void InsertIdProprety(this ICodeBuilder codeBuilder, DataStructureInfo info)
         {
             codeBuilder.InsertCode(@"
-        ID?: string;", DataStructureCodeGenerator.MembersTag, info);
+        ID: string;", DataStructureCodeGenerator.MembersTag, info);
         }
 
         public static string RhetosKeyword(this Type type)
