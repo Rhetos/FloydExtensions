@@ -21,7 +21,7 @@ namespace Rhetos.FloydExtensions
         private static string Code(ModuleInfo info)
         {
             return $@"
-export module {info.Name} {{
+export namespace {info.Name} {{
 {MembersTag.Evaluate(info)}
 }}
 ";
