@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoApplyRowPermissionsFilterMacro.cs" />
+    <Compile Include="AutoApplyRowPermissionsFilterConcept.cs" />
     <Compile Include="ComplexStructure\ComplexSaveFunctionCodeGenerator.cs" />
     <Compile Include="ComplexStructure\ComplexGetFunctionCodeGenerator.cs" />
     <Compile Include="DataStructure\ActionCodeGenerator.cs" />
