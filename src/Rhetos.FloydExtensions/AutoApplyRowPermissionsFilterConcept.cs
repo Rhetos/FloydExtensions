@@ -97,28 +97,28 @@ namespace Rhetos.FloydExtensions
 
             return specificFilterById || genericFilterById;
         }
-
-        [Export(typeof(IConceptMacro))]
-        public class AutoApplyRowPermissionsFilterGlobalMacro : IConceptMacro<ModuleInfo>
-        {
-	        private readonly IConfiguration _configuration;
-
-	        public AutoApplyRowPermissionsFilterGlobalMacro(IConfiguration configuration)
-	        {
-		        _configuration = configuration;
-	        }
-
-	        public IEnumerable<IConceptInfo> CreateNewConcepts(ModuleInfo moduleInfo, IDslModel existingConcepts)
-	        {
-		        if (!_configuration.GetBool("FloydExtensions:AutoApplyRowPermissionsFilterGlobally", false).Value)
-			        return new IConceptInfo[] { };
-
-		        return new[] { new AutoApplyRowPermissionsFilterWithExceptionConcept
-		        {
-			        Module = moduleInfo,
-			        Except = string.Empty
-		        } };
-	        }
-        }
 	}
+
+    [Export(typeof(IConceptMacro))]
+    public class AutoApplyRowPermissionsFilterGlobalMacro : IConceptMacro<ModuleInfo>
+    {
+        private readonly IConfiguration _configuration;
+
+        public AutoApplyRowPermissionsFilterGlobalMacro(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        public IEnumerable<IConceptInfo> CreateNewConcepts(ModuleInfo moduleInfo, IDslModel existingConcepts)
+        {
+            if (!_configuration.GetBool("FloydExtensions:AutoApplyRowPermissionsFilterGlobally", false).Value)
+                return new IConceptInfo[] { };
+
+            return new[] { new AutoApplyRowPermissionsFilterWithExceptionConcept
+                {
+                    Module = moduleInfo,
+                    Except = string.Empty
+                } };
+        }
+    }
 }

@@ -18,23 +18,27 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
+using Rhetos.Utilities;
 
 namespace Rhetos.FloydExtensions
 {
     public class MetadataProvider
     {
-		private static readonly Lazy<string> Metadata = new Lazy<string>(() =>
-		{
-			var fileName = Path.Combine(Utilities.Paths.GeneratedFolder, "Metadata.json");
-			return File.ReadAllText(fileName);
-		});
+        private readonly Lazy<string> _metadata;
+
+        public MetadataProvider(IAssetsOptions assetsOptions)
+        {
+            _metadata = new Lazy<string> (() =>
+            {
+                var fileName = Path.Combine(assetsOptions.AssetsFolder, "Metadata.json");
+                return File.ReadAllText(fileName);
+            });
+        }
 
         public string GetStructureMetadata()
         {
-            return Metadata.Value;
+            return _metadata.Value;
         }
     }
 }
