@@ -25,8 +25,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rhetos.FloydExtensions
 {
@@ -111,7 +109,7 @@ namespace Rhetos.FloydExtensions
 
         public IEnumerable<IConceptInfo> CreateNewConcepts(ModuleInfo moduleInfo, IDslModel existingConcepts)
         {
-            if (!_configuration.GetBool("FloydExtensions:AutoApplyRowPermissionsFilterGlobally", false).Value)
+            if (!_configuration.GetValue("FloydExtensions:AutoApplyRowPermissionsFilterGlobally", false))
                 return new IConceptInfo[] { };
 
             return new[] { new AutoApplyRowPermissionsFilterWithExceptionConcept

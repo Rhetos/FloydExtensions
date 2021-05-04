@@ -27,7 +27,7 @@ namespace Rhetos.FloydExtensions
     {
         protected override void Load(ContainerBuilder builder)
         {
-            var pluginRegistration = builder.GetPluginRegistration();
+            var pluginRegistration = builder.GetRhetosPluginRegistration();
             pluginRegistration.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>();
             builder.RegisterType<MetadataProvider>().SingleInstance();
             base.Load(builder);
