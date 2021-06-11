@@ -35,7 +35,7 @@ namespace Rhetos.FloydExtensions
         [ConceptKey]
         public ModuleInfo Module { get; set; }
 
-        public IEnumerable<IConceptInfo> CreateNewConcepts(IEnumerable<IConceptInfo> existingConcepts)
+        public IEnumerable<IConceptInfo> CreateNewConcepts()
         {
             return new IConceptInfo[] { new AutoApplyRowPermissionsFilterWithExceptionConcept { Module = Module, Except = "" } }; 
         }
@@ -72,16 +72,16 @@ namespace Rhetos.FloydExtensions
 
         public static bool IsFilterById(ReadCommandInfo command)
         {
-            if (command.Filters == null || command.Filters.Count() != 1)
+            if (command.Filters == null || command.Filters.Length != 1)
                 return false;
 
             var f = command.Filters[0];
 
-            bool specificFilterById = // Specific filter IEnumerable<Guid> (or derivation) with 1 guid:
+            bool specificFilterById = // Specific filter IEnumerable<Guid> (or derivation) with 1 GUID:
                 f.Filter != null
                 && f.Value != null
-                && f.Value as IEnumerable<Guid> != null
-                && ((IEnumerable<Guid>)f.Value).Count() == 1;
+                && f.Value is IEnumerable<Guid> enumerable
+                && enumerable.Count() == 1;
         
             bool genericFilterById = // Generic filter on property ID
                 f.Property != null
@@ -110,7 +110,7 @@ namespace Rhetos.FloydExtensions
         public IEnumerable<IConceptInfo> CreateNewConcepts(ModuleInfo moduleInfo, IDslModel existingConcepts)
         {
             if (!_configuration.GetValue("FloydExtensions:AutoApplyRowPermissionsFilterGlobally", false))
-                return new IConceptInfo[] { };
+                return Array.Empty<IConceptInfo>();
 
             return new[] { new AutoApplyRowPermissionsFilterWithExceptionConcept
                 {
