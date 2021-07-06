@@ -9,6 +9,7 @@ namespace Rhetos.FloydExtensions
         protected override void Load(ContainerBuilder builder)
         {
             Extensibility.Plugins.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>(builder);
+            Extensibility.Plugins.FindAndRegisterPlugins<ITypeScriptSupportedType>(builder);
             builder.RegisterType<MetadataProvider>().SingleInstance();
             base.Load(builder);
         }

@@ -5,11 +5,14 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+	[Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(DateTimePropertyInfo))]
-    public class DateTimePropertyCodeGenerator : PropertyCodeGenerator
+    public class DateTimePropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "Date";
+        public override string TypeScriptType => "Date";
+        public string PropertyType => "DateTime";
+
 
         public DateTimePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {

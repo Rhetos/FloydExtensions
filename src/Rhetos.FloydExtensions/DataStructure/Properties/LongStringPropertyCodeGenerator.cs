@@ -5,11 +5,13 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+	[Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(LongStringPropertyInfo))]
-    public class LongStringPropertyCodeGenerator : PropertyCodeGenerator
+    public class LongStringPropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "string";
+	    public string PropertyType => "LongString";
+        public override string TypeScriptType => "string";
 
         public LongStringPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {

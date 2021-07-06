@@ -6,11 +6,14 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+	[Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(ReferencePropertyInfo))]
-    public class ReferencePropertyCodeGenerator : PropertyCodeGenerator
+    public class ReferencePropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "string";
+        public override string TypeScriptType => "string";
+        public string PropertyType => "Reference";
+
 
         protected override string NameSufix => "ID";
 

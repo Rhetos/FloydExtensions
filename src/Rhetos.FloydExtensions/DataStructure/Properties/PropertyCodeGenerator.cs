@@ -11,7 +11,7 @@ namespace Rhetos.FloydExtensions
 
         protected readonly IDslModel DslModel;
 
-        protected abstract string JavaScriptType { get; }
+        public abstract string TypeScriptType { get; }
 
         protected virtual string NameSufix => string.Empty;
 
@@ -23,7 +23,7 @@ namespace Rhetos.FloydExtensions
         public virtual void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
         {
             var isRequired = DslModel.FindByType<RequiredPropertyInfo>().Any(x => x.Property == conceptInfo);
-            codeBuilder.InsertPropertyCode((PropertyInfo)conceptInfo, JavaScriptType, NameSufix, isRequired);
+            codeBuilder.InsertPropertyCode((PropertyInfo)conceptInfo, TypeScriptType, NameSufix, isRequired);
         }
     }
 }
