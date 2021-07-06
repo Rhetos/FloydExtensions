@@ -20,6 +20,7 @@
     <file src="DslScripts\**\*" target="DslScripts" />
     <file src="Rhetos.FloydExtensions\bin\Debug\Rhetos.FloydExtensions.dll" target="lib\net472" />
     <file src="Rhetos.FloydExtensions\bin\Debug\Rhetos.FloydExtensions.pdb" target="lib\net472" />
+    <file src="..\lib\CrossOriginRequestInfo.dll" target="lib\net472" />
     <file src="..\Readme.md" target="" />
   </files>
 </package>
