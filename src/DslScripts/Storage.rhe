@@ -1,4 +1,4 @@
-Module Common
+Module Floyd
 {
 	Entity Storage
 	{
@@ -11,15 +11,15 @@ Module Common
 	
 	Action SaveStorageItem '(prms, repository, userInfo) => 
 	{
-		var item = repository.Common.Storage.Query().FirstOrDefault(x => x.StorageKey == prms.Key && x.UserName == userInfo.UserName);
+		var item = repository.Floyd.Storage.Query().FirstOrDefault(x => x.StorageKey == prms.Key && x.UserName == userInfo.UserName);
 		if (item != null)
 		{
 			item.Value = prms.Value;
-			repository.Common.Storage.Update(item);
+			repository.Floyd.Storage.Update(item);
 		}
 		else
 		{
-			repository.Common.Storage.Insert(new Common.Storage { UserName = userInfo.UserName, StorageKey = prms.Key, Value = prms.Value});
+			repository.Floyd.Storage.Insert(new Floyd.Storage { UserName = userInfo.UserName, StorageKey = prms.Key, Value = prms.Value});
 		}
 	}'
 	{
@@ -28,13 +28,13 @@ Module Common
 	}
 
 	Computed GetStorage 'repository => {
-		var userStorage = repository.Common.Storage.Query()
+		var userStorage = repository.Floyd.Storage.Query()
 			.Where(x => x.UserName == _executionContext.UserInfo.UserName);
-		var commonStorage = repository.Common.Storage.Query()
+		var commonStorage = repository.Floyd.Storage.Query()
 			.Where(x => x.UserName == null);
 			
 		return userStorage.Concat(commonStorage.Where(c => !userStorage.Any(u => u.StorageKey == c.StorageKey)))
-			.Select(x => new Common.GetStorage { Key = x.StorageKey,  Value = x.Value })
+			.Select(x => new Floyd.GetStorage { Key = x.StorageKey,  Value = x.Value })
 			.ToArray();
 	}'
 	{

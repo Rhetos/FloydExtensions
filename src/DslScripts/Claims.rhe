@@ -1,27 +1,28 @@
-Module Common
+Module Floyd
 {
-	Computed AllClaims
-		'(repository, executionContext) =>
+	Computed MyClaims
+		'(repository) =>
 		{
-			var claims = repository.Common.Claim.Query().ToList();
-			var securityClaims = claims.Select(c => new Rhetos.Security.Claim(c.ClaimResource, c.ClaimRight)).ToList();
-			var authorizations = executionContext.AuthorizationManager.GetAuthorizations(securityClaims);
+			if (_securityClaims == null)
+			{
+				var claims = repository.Common.Claim.Load().ToList();
+				_securityClaims = claims.Select(c => new Rhetos.Security.Claim(c.ClaimResource, c.ClaimRight)).ToList();
+			}
+			var authorizations = _executionContext.AuthorizationManager.GetAuthorizations(_securityClaims);
 		
-			return claims.Zip(authorizations, (claim, authorized) => new Common.AllClaims {
-					ID = claim.ID,
-					ClaimResource = claim.ClaimResource,
-					ClaimRight = claim.ClaimRight,
-					Applies = authorized
-				})
-				.ToList()
-				.Where(i => i.Applies == true)
+			return _securityClaims.Zip(authorizations, (claim, authorized) => new {claim, authorized})
+				.Where(x => x.authorized == true)
+				.Select(x => 
+					new Floyd.MyClaims {
+							ClaimResource = x.claim.Resource,
+							ClaimRight = x.claim.Right
+						})
 				.ToArray();
 		 }'
 	{
 		ShortString ClaimResource;
 		ShortString ClaimRight;
-		Bool Applies;
 		
-		UseExecutionContext;
+		RepositoryMember SecurityClaims 'private static List<Rhetos.Security.Claim> _securityClaims = null;';
 	}
 }
