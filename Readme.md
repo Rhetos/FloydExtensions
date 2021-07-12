@@ -26,25 +26,25 @@ FloydExtensions plugin adds 1 new claim:
 
 ## Usage
 
-Generated TypeStript model is placed in `bin\Generated\RhetosModel.ts` file. Simply include this file in your project. Here is sample of generated TypesCript model:
+Generated TypeScript model is placed in `bin\Generated\RhetosModel.ts` file. Simply include this file in your project. Here is sample of generated TypesScript model:
 
 ```typescript
 export module Common {
-	///
-	
-    export const PrincipalPermissionKey = 'Common/PrincipalPermission'; //constant that represents a key for retreiving metadata via Common.GetStructureMetadata function
+    ///
+    
+    export const PrincipalPermissionKey = 'Common/PrincipalPermission'; //constant that represents a key for retrieving metadata via Common.GetStructureMetadata function
     export interface PrincipalPermission {
         ID?: string;
         PrincipalID: string;
         ClaimID: string;
         IsAuthorized?: boolean;
     }
-	
-	///
+    
+    ///
 }
 ```
 
-In order to retreive metadata for specified model (DataStructure) call **Common.GetStructureMetadata** function providing *Key* parameter. Function returns an object with `Value` property which contains JSON metadata like this:
+In order to retrieve metadata for specified model (DataStructure) call **Common.GetStructureMetadata** function providing *Key* parameter. Function returns an object with `Value` property which contains JSON metadata like this:
 
 ```json
 {
