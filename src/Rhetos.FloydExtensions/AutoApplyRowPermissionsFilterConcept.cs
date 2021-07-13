@@ -64,8 +64,8 @@ namespace Rhetos.FloydExtensions
                     DataStructure = rpr.Source,
                     FilterName = rpr.Parameter,
                     
-                    // Ako se dohvaća točno jedan zapis po IDju, onda se ne primjenjuje automatski filter po row permissionima.
-                    // Ako user nema prava za taj zapis očekuje se standardna greška od row permissiona.
+                    // When reading only one record by ID, automatic filtering by user's row permissions will not be applied.
+                    // If the user does not have read permissions for that record, standar row permissions error response will be returned.
                     Where = @"command => !Rhetos.FloydExtensions.AutoApplyRowPermissionsFilterMacro.IsFilterById(command)"
 				});
         }
