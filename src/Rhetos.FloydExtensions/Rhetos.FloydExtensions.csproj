@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
     <Compile Include="AutoApplyRowPermissionsFilterConcept.cs" />
     <Compile Include="ComplexStructure\ComplexSaveFunctionCodeGenerator.cs" />
     <Compile Include="ComplexStructure\ComplexGetFunctionCodeGenerator.cs" />
+    <Compile Include="CrossOriginSupportModule.cs" />
     <Compile Include="DataStructure\ActionCodeGenerator.cs" />
     <Compile Include="DataStructure\BrowseCodeGenerator.cs" />
     <Compile Include="ComplexStructure\ComplexStructureCodeGenerator.cs" />

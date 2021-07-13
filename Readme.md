@@ -20,9 +20,31 @@ and make sure the NuGet package location is listed in the *RhetosPackageSources.
   The Rhetos server can install the package directly from there, if the gallery is listed in *RhetosPackageSources.config* file.
 * For more information, see [Installing plugin packages](https://github.com/Rhetos/Rhetos/wiki/Installing-plugin-packages).
 
-FloydExtensions plugin adds 1 new claim:
+In order to enable CORS requests from the browser you should register CrossOriginSupportModule and enable CORS custom headers in the web.config: 
 
-* *ClaimResource*: 'Common.GetStructureMetadata',  *ClaimRight*: 'Execute' - claim which provides metadata for specified DataStructure. Every user in the system should have permission for this claim.
+```xml
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+	  <add name="CrossOriginSupportModule" type="Rhetos.FloydExtensions.CrossOriginSupportModule, Rhetos.FloydExtensions" />
+    </modules>
+  </system.webServer>
+
+  <httpProtocol>
+    <customHeaders>
+      <add name="Access-Control-Allow-Origin" value="http://localhost:4200" /> <!-- root url of your application goes here -->
+      <add name="Access-Control-Allow-Methods" value="POST, GET, PUT, DELETE, OPTIONS" />
+      <add name="Access-Control-Allow-Headers" value="Content-Type, Authorization, Accept" />
+      <add name="Access-Control-Allow-Credentials" value="true" />
+    </customHeaders>
+  </httpProtocol>
+```
+
+FloydExtensions plugin adds following claims (every user in the system should have permission for this claim):
+
+* *ClaimResource*: 'Floyd.GetStructureMetadata',  *ClaimRight*: 'Execute'
+* *ClaimResource*: 'Floyd.MyClaims',  *ClaimRight*: 'Read'
+* *ClaimResource*: 'Floyd.GetStorage',  *ClaimRight*: 'Read'
+* *ClaimResource*: 'Floyd.SaveStorageItem',  *ClaimRight*: 'Execute'
 
 ## Usage
 
