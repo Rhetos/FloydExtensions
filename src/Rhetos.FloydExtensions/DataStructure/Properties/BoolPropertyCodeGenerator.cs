@@ -24,11 +24,14 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+    [Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(BoolPropertyInfo))]
-    public class BoolPropertyCodeGenerator : PropertyCodeGenerator
+    public class BoolPropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "boolean";
+        public override string TypeScriptType => "boolean";
+        public string PropertyType => "Bool";
+
 
         public BoolPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {

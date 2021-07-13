@@ -24,11 +24,14 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+	[Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(DatePropertyInfo))]
-    public class DatePropertyCodeGenerator : PropertyCodeGenerator
+    public class DatePropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "Date";
+        public override string TypeScriptType => "Date";
+        public string PropertyType => "Date";
+
 
         public DatePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {

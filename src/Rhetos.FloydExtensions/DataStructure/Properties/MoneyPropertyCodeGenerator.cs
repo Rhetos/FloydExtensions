@@ -24,11 +24,14 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+	[Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(MoneyPropertyInfo))]
-    public class MoneyPropertyCodeGenerator : PropertyCodeGenerator
+    public class MoneyPropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "number";
+        public override string TypeScriptType => "number";
+        public string PropertyType => "Money";
+
 
         public MoneyPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {

@@ -17,24 +17,23 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System.ComponentModel.Composition;
-using Rhetos.Dsl;
-using Rhetos.Dsl.DefaultConcepts;
-using Rhetos.Extensibility;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Rhetos.FloydExtensions
 {
-	[Export(typeof(ITypeScriptSupportedType))]
-    [Export(typeof(ITypeScriptGeneratorPlugin))]
-    [ExportMetadata(MefProvider.Implements, typeof(IntegerPropertyInfo))]
-    public class IntegerPropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
-    {
-        public override string TypeScriptType => "number";
-        public string PropertyType => "Integer";
+	public interface ITypeScriptSupportedType
+	{
+		string PropertyType { get; }
+		string TypeScriptType { get; }
+	}
 
-
-        public IntegerPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
-        {
-        }
-    }
+	public static class TypeScriptSupportedTypeExtensions
+	{
+		public static string GetTypeScriptType(this IEnumerable<ITypeScriptSupportedType> types, string propertyType)
+		{
+			var t = types.FirstOrDefault(x => x.PropertyType == propertyType);
+			return t != null ? t.TypeScriptType : "any";
+		}
+	}
 }

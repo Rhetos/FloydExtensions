@@ -29,6 +29,7 @@ namespace Rhetos.FloydExtensions
         {
             var pluginRegistration = builder.GetRhetosPluginRegistration();
             pluginRegistration.FindAndRegisterPlugins<ITypeScriptGeneratorPlugin>();
+            pluginRegistration.FindAndRegisterPlugins<ITypeScriptSupportedType>();
             builder.RegisterType<MetadataProvider>().SingleInstance();
             base.Load(builder);
         }

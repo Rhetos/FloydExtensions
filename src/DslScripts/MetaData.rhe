@@ -1,13 +1,13 @@
-﻿Module Common
+﻿Module Floyd
 {
 	DataStructure StructureMetadata
 	{
 		LongString Value;
 	}
 	
-	Function GetStructureMetadata Common.StructureMetadata '(parameters, repository, userInfo) => 
+	Function GetStructureMetadata Floyd.StructureMetadata '(parameters, repository, userInfo) => 
 	{
-		return new Common.StructureMetadata
+		return new Floyd.StructureMetadata
 		{
 			Value = _metadataProvider.GetStructureMetadata()
 		};

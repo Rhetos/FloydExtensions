@@ -22,6 +22,9 @@
 		Decimal DecimalniBroj { MinValue "0.01"; MaxValue "1";}
 		Date Datum { MinValue "2001-1-1"; MaxValue "2101-12-31";}
 		
+		Object TsTest1.Entity1 TheReference;
+		ListOf TsTest1.Entity1 Details;
+		
 		RowPermissions
 		{
 			Allow All 'context => item => true;';

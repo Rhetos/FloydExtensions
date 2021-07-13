@@ -24,11 +24,14 @@ using Rhetos.Extensibility;
 
 namespace Rhetos.FloydExtensions
 {
+	[Export(typeof(ITypeScriptSupportedType))]
     [Export(typeof(ITypeScriptGeneratorPlugin))]
     [ExportMetadata(MefProvider.Implements, typeof(GuidPropertyInfo))]
-    public class GuidPropertyCodeGenerator : PropertyCodeGenerator
+    public class GuidPropertyCodeGenerator : PropertyCodeGenerator, ITypeScriptSupportedType
     {
-        protected override string JavaScriptType => "string";
+        public override string TypeScriptType => "string";
+        public string PropertyType => "Guid";
+
 
         public GuidPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
