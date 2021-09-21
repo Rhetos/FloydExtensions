@@ -26,9 +26,9 @@ namespace Rhetos.FloydExtensions
 		private static string Code(HardcodedEntityInfo info)
 		{
 			return $@"
-    export const {info.Name}Ids = [
+    export const {info.Name}Ids = {{
 		{EntryIdTag.Evaluate(info)}
-	];
+	}};
 
     export const {info.Name}Items = [
 		{EntryItemTag.Evaluate(info)}

@@ -21,7 +21,7 @@ namespace Rhetos.FloydExtensions
 
 		private static string IdCode(EntryInfo info)
 		{
-			return $@"{info.Name} = '{info.GetIdentifier()}'";
+			return $@"{info.Name}: '{info.GetIdentifier()}'";
 		}
 
 		private static string ItemCode(EntryInfo info)
