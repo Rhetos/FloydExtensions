@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.ComponentModel.Composition;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
@@ -31,8 +32,8 @@ namespace Rhetos.FloydExtensions
     {
         public override string TypeScriptType => "Date";
         public string PropertyType => "Date";
-
-
+        public Type DslType => typeof(DatePropertyInfo);
+        
         public DatePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }

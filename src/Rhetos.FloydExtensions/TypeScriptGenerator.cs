@@ -73,7 +73,9 @@ namespace Rhetos.FloydExtensions
             var source = assemblySource.GeneratedCode.Split(new[] {TypeScriptGeneratorInitialCodeGenerator.FileSplitTag}, StringSplitOptions.None);
 
             string sourceFile = Path.Combine(Paths.GeneratedFolder + @"\rhetos-model.ts");
-            var typeScript = $@"/* tslint:disable:no-empty-interface class-name no-namespace */
+            var typeScript = $@"/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-namespace */
+/* tslint:disable:no-empty-interface class-name no-namespace */
 
 import {{ createStructureInfo, createFunctionInfo, createComplexInfo, createComplexGetInfo }} from '@ngx-floyd/rhetos';
 

@@ -69,4 +69,22 @@
 	{
 		ShortString Name;
 	}
+	
+	Hardcoded HardcodedEntity
+	{
+		ShortString ItemName;
+		Integer SomeValue;
+		
+		Entry FirstItem
+		{
+			Value ItemName 'First item';
+			Value SomeValue 1;
+		}
+
+		Entry SecondItem
+		{
+			Value ItemName 'Second item';
+			Value SomeValue 2;
+		}
+	}
 }

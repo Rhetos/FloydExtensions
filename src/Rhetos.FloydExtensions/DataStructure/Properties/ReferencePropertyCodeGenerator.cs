@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.ComponentModel.Composition;
 using Rhetos.Compiler;
 using Rhetos.Dsl;
@@ -32,8 +33,8 @@ namespace Rhetos.FloydExtensions
     {
         public override string TypeScriptType => "string";
         public string PropertyType => "Reference";
-
-
+        public Type DslType => typeof(ReferencePropertyInfo);
+        
         protected override string NameSufix => "ID";
 
         public override void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)

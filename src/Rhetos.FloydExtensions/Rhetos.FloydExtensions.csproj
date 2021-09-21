@@ -53,6 +53,9 @@
     <Compile Include="DataStructure\ComputedCodeGenerator.cs" />
     <Compile Include="DataStructure\EntityCodeGenerator.cs" />
     <Compile Include="DataStructure\FunctionCodeGenerator.cs" />
+    <Compile Include="DataStructure\Hardcoded\EntryCodeGenerator.cs" />
+    <Compile Include="DataStructure\Hardcoded\EntryValueCodeGenerator.cs" />
+    <Compile Include="DataStructure\Hardcoded\HardcodedCodeGenerator.cs" />
     <Compile Include="DataStructure\ModuleCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\BoolPropertyCodeGenerator.cs" />
     <Compile Include="DataStructure\Properties\DatePropertyCodeGenerator.cs" />

@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.ComponentModel.Composition;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
@@ -31,7 +32,7 @@ namespace Rhetos.FloydExtensions
     {
         public override string TypeScriptType => "string";
         public string PropertyType => "Guid";
-
+        public Type DslType => typeof(GuidPropertyInfo);
 
         public GuidPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
