@@ -26,7 +26,7 @@ namespace Rhetos.FloydExtensions
 
 		private static string ItemCode(EntryInfo info)
 		{
-			return $@"{{ ID: '{info.GetIdentifier()}'{EntryValueTag.Evaluate(info)} }}";
+			return $@"{{ ID: '{info.GetIdentifier()}', Name: '{info.Name}'{EntryValueTag.Evaluate(info)} }}";
 		}
 	}
 }
