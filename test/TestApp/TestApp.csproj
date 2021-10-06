@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Rhetos" Version="5.0.0-dev*" />
+    <PackageReference Include="Rhetos.CommonConcepts" Version="5.0.0-dev*" />
+    <PackageReference Include="Rhetos.Host" Version="5.0.0-dev*" />
+    <PackageReference Include="Rhetos.Host.AspNet" Version="5.0.0-dev*" />
+    <PackageReference Include="Rhetos.MSBuild" Version="5.0.0-dev*" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Rhetos.FloydExtensions\Rhetos.FloydExtensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DslScripts\Rhetos.FloydExtensions\" />
+  </ItemGroup>
+
+  <Target Name="CopyDslScripts" BeforeTargets="ResolveRhetosBuildItems">
+    <ItemGroup>
+      <FloydExtensionsDslScripts Include="..\..\src\Rhetos.FloydExtensions\DslScripts\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FloydExtensionsDslScripts)" DestinationFolder="DslScripts\Rhetos.FloydExtensions" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

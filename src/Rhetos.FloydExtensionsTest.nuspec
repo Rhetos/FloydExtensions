@@ -16,6 +16,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="TestDslScripts\**\*" target="DslScripts" />
+    <file src="..\test\TestApp\DslScripts\*" target="DslScripts" />
   </files>
 </package>

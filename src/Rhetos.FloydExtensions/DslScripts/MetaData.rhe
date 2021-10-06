@@ -1,0 +1,19 @@
+﻿Module Floyd
+{
+	DataStructure StructureMetadata
+	{
+		LongString Value;
+	}
+	
+	Function GetStructureMetadata Floyd.StructureMetadata '(parameters, repository, userInfo) => 
+	{
+		return new Floyd.StructureMetadata
+		{
+			Value = _metadataProvider.GetStructureMetadata()
+		};
+	}'
+	{
+		RepositoryUses '_metadataProvider' 'Rhetos.FloydExtensions.MetadataProvider, Rhetos.FloydExtensions';
+	}
+	
+}

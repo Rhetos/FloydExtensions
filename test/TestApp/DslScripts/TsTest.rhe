@@ -1,0 +1,90 @@
+﻿Module TsTest1
+{
+	AutoInheritRowPermissions;
+	
+	Entity Entity1
+	{
+		ShortString Name {Required;}
+		LongString Description;
+		
+		Is TsTest1.ThePolymorphic "Entity1ThePolymorphicImplementation"
+		{
+			Implements TsTest1.ThePolymorphic.Name "Name";
+		}
+	}
+	
+	Entity Entity2
+	{
+		ShortString Name {Required; RegexMatch "\d{1,15}" "Matični broj (MB) mora sadržavati isključivo znamenke.";}
+		LongString Description { MinLength "10"; MaxLength "1999"; }
+		Reference Entity1;
+		Integer Broj { MinValue "10"; MaxValue "100";}
+		Decimal DecimalniBroj { MinValue "0.01"; MaxValue "1";}
+		Date Datum { MinValue "2001-1-1"; MaxValue "2101-12-31";}
+		
+		Object TsTest1.Entity1 TheReference;
+		ListOf TsTest1.Entity1 Details;
+		
+		RowPermissions
+		{
+			Allow All 'context => item => true;';
+		}
+	}
+	
+	Browse Entity2Browse TsTest1.Entity2
+	{
+		Take Name;
+		Take Description;
+		Take Entity1Name 'Entity1.Name';
+		
+		ComposableFilterBy TheFilter '(items, repository, filter) => items.Where(x => x.Name.StartsWith(filter.NameStartsWith))';
+		FilterBy 'TsTest1.Entity2' '(repository, filter) => repository.TsTest1.Entity2Browse.Query().ToArray()';
+	}
+	
+	Parameter TheFilter
+	{
+		ShortString NameStartsWith;
+	}
+	
+	Action SaveEntity1 '(parameters, repository, userInfo) => {}'
+	{
+		ShortString Name;
+		LongString Description;
+	}
+	
+	Parameter TheParameter
+	{
+		ShortString NameStartsWith;
+	}
+	
+	Polymorphic ThePolymorphic
+	{
+		ShortString Name;
+	}
+	
+	Function CreateEntity TsTest1.Entity1 ' (parameters, repository, userInfo) =>
+	{
+		return new TsTest1.Entity1();
+	}'
+	{
+		ShortString Name;
+	}
+	
+	Hardcoded HardcodedEntity
+	{
+		ShortString ItemName;
+		Integer SomeValue;
+		
+		Entry FirstItem
+		{
+			Value ItemName 'First item';
+			Value SomeValue 1;
+		}
+
+		Entry SecondItem
+		{
+			Value ItemName 'Second item';
+			Value SomeValue 2;
+		}
+	}
+}

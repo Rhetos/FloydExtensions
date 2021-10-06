@@ -245,3 +245,5 @@ _Pvt_Extensions
 /Rhetos/Logs
 /Rhetos/PackagesCache
 /Rhetos/Resources
+/test/TestApp/DslScripts/Rhetos.FloydExtensions
+/test/TestApp/rhetos-app.local.settings.json

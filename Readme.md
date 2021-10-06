@@ -27,7 +27,7 @@ FloydExtensions plugin adds following claims (every user in the system should ha
 
 ## Usage
 
-Generated TypeScript model is placed in `bin\Generated\RhetosModel.ts` file. Simply include this file in your project. Here is sample of generated TypesScript model:
+Generated TypeScript model is placed in bin folder in `RhetosAssets\rhetos-model.ts` file. Simply include this file in your project. Here is sample of generated TypesScript model:
 
 ```typescript
 export module Common {

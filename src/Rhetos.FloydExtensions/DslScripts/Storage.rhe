@@ -1,0 +1,44 @@
+Module Floyd
+{
+	Entity Storage
+	{
+		ShortString UserName;
+		ShortString StorageKey { Required; }
+		LongString Value { Required; }
+		
+		UniqueMultiple 'UserName StorageKey';		
+	}
+	
+	Action SaveStorageItem '(prms, repository, userInfo) => 
+	{
+		var item = repository.Floyd.Storage.Query().FirstOrDefault(x => x.StorageKey == prms.Key && x.UserName == userInfo.UserName);
+		if (item != null)
+		{
+			item.Value = prms.Value;
+			repository.Floyd.Storage.Update(item);
+		}
+		else
+		{
+			repository.Floyd.Storage.Insert(new Floyd.Storage { UserName = userInfo.UserName, StorageKey = prms.Key, Value = prms.Value});
+		}
+	}'
+	{
+		ShortString Key;
+		LongString Value;
+	}
+
+	Computed GetStorage 'repository => {
+		var userStorage = repository.Floyd.Storage.Query()
+			.Where(x => x.UserName == _executionContext.UserInfo.UserName);
+		var commonStorage = repository.Floyd.Storage.Query()
+			.Where(x => x.UserName == null);
+			
+		return userStorage.Concat(commonStorage.Where(c => !userStorage.Any(u => u.StorageKey == c.StorageKey)))
+			.Select(x => new Floyd.GetStorage { Key = x.StorageKey,  Value = x.Value })
+			.ToArray();
+	}'
+	{
+			ShortString Key;
+			LongString Value;
+	}
+}
