@@ -17,7 +17,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="DslScripts\**\*" target="DslScripts" />
+    <file src="Rhetos.FloydExtensions\DslScripts\**\*" target="DslScripts" />
     <file src="Rhetos.FloydExtensions\bin\Debug\net5.0\Rhetos.FloydExtensions.dll" target="lib\net5.0" />
     <file src="Rhetos.FloydExtensions\bin\Debug\net5.0\Rhetos.FloydExtensions.pdb" target="lib\net5.0" />
     <file src="..\Readme.md" target="" />
