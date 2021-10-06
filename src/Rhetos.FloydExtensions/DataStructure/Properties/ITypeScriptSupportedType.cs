@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,6 +27,7 @@ namespace Rhetos.FloydExtensions
 	{
 		string PropertyType { get; }
 		string TypeScriptType { get; }
+		Type DslType { get; }
 	}
 
 	public static class TypeScriptSupportedTypeExtensions
