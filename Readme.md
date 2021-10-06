@@ -47,7 +47,7 @@ export module Common {
 
 In order to retrieve metadata for specified model (DataStructure) call **Common.GetStructureMetadata** function providing *Key* parameter. Function returns an object with `Value` property which contains JSON metadata like this:
 
-```json
+```js
 {
   key: 'Common/PrincipalPermission', 
   serviceType: 'Entity',
