@@ -31,7 +31,7 @@ namespace Rhetos.FloydExtensions
         {
             _metadata = new Lazy<string> (() =>
             {
-                var fileName = Path.Combine(assetsOptions.AssetsFolder, "Metadata.json");
+                var fileName = Path.Combine(assetsOptions.AssetsFolder, "TypeScriptMetadata.json");
                 return File.ReadAllText(fileName);
             });
         }

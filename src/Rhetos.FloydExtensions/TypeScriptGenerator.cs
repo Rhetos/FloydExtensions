@@ -86,7 +86,7 @@ import {{ createStructureInfo, createFunctionInfo, createComplexInfo, createComp
 ";
             File.WriteAllText(sourceFile, typeScript);
 
-            string jsonFile = Path.Combine(_rhetosBuildEnvironment.GeneratedAssetsFolder, @"Metadata.json");
+            string jsonFile = Path.Combine(_rhetosBuildEnvironment.GeneratedAssetsFolder, @"TypeScriptMetadata.json");
             var json = source.Length > 1 ? source[1] : "";
             File.WriteAllText(jsonFile, json);
 
