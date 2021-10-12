@@ -8,3 +8,7 @@
 2. IIS CrossOriginSupportModule is no longer implemented in this package.
    * Enable CORS in your application by following instruction at [Enable CORS in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0).
    * Removed old CORS configuration from web.config (see Readme.md from older version of this package).
+
+## 1.0.6 (2021-10-12)
+
+* Constants for **Hardcoded** entity: `<Module>.<Entity>Ids` and `<Module>.<Entity>Items`.
