@@ -30,7 +30,7 @@ namespace Rhetos.FloydExtensions
 		{EntryIdTag.Evaluate(info)}
 	}};
 
-    export const {info.Name}Items = [
+    export const {info.Name}Items: {info.Module.Name}.{info.Name}[] = [
 		{EntryItemTag.Evaluate(info)}
 	];
 ";
