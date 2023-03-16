@@ -1,5 +1,10 @@
 # Rhetos.FloydExtensions release notes
 
+## 5.1.0 (2023-03-16)
+
+* Bugfix: **Hardcoded** items array is now properly typed.
+* Bugfix: ID property is not generated for **Polymorphic**.
+
 ## 5.0.0 (2022-03-25)
 
 ### Breaking changes
