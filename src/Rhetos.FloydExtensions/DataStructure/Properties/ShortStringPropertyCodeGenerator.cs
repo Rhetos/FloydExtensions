@@ -37,5 +37,7 @@ namespace Rhetos.FloydExtensions
         public ShortStringPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }
+
+        public string GetTypeScriptLiteral(string value) => $"'{value.Replace("'", @"\'")}'";
     }
 }

@@ -19,6 +19,7 @@
 
 using System;
 using System.ComponentModel.Composition;
+using Newtonsoft.Json.Linq;
 using Rhetos.Dsl;
 using Rhetos.Dsl.DefaultConcepts;
 using Rhetos.Extensibility;
@@ -37,5 +38,7 @@ namespace Rhetos.FloydExtensions
         public IntegerPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }
+
+        public string GetTypeScriptLiteral(string value) => value;
     }
 }

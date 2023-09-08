@@ -74,17 +74,40 @@
 	{
 		ShortString ItemName;
 		Integer SomeValue;
+		Bool Active;
+		Date StartDate;
+		DateTime EndTime;
+		Decimal D;
+		Money M;
+		Binary B;
 		
 		Entry FirstItem
 		{
-			Value ItemName 'First item';
+			Value ItemName "First item";
 			Value SomeValue 1;
+			Value Active 1;
+			Value StartDate '2023-04-05';
+			Value EndTime '2023-04-05';
+			Value D '123.4567';
+			Value M '123.45';
+			Value B '0x01';
 		}
 
 		Entry SecondItem
 		{
-			Value ItemName 'Second item';
+			Value ItemName "Second item's";
 			Value SomeValue 2;
+			Value Active False;
+			Value StartDate '2023-04-05';
+			Value EndTime '2023-04-05';
+			Value D '-123.4567';
+			Value M '-123.45';
+			Value B '0x02';
+		}
+
+		Entry ThirdItem
+		{
+			Value Active 'true   ';
 		}
 	}
 }

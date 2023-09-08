@@ -37,5 +37,7 @@ namespace Rhetos.FloydExtensions
         public MoneyPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }
+
+        public string GetTypeScriptLiteral(string value) => value;
     }
 }

@@ -53,7 +53,7 @@ namespace Rhetos.FloydExtensions
         }
 
         const string DetectLineTag = @"\n\s*/\*.*?\*/\s*\r?\n";
-        const string DetectTag = @"/\*.*?\*/";
+        const string DetectTag = @"/\*[^,].*?\*/"; // Komentar koji počitanje sa zarezom nije tag, nego namjerno ostavljen komentar u EntryValueCodeGenerator.
         const string DetectLastComma = "},\r\n    ];\r\n\r\n";
         const string DetectLastComma2 = "},\r\n            ],\r\n";
         const string DetectLastComma3 = "],\r\n        };\r\n";

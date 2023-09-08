@@ -47,5 +47,7 @@ namespace Rhetos.FloydExtensions
         public ReferencePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }
+
+        public string GetTypeScriptLiteral(string value) => $"'{value}'";
     }
 }

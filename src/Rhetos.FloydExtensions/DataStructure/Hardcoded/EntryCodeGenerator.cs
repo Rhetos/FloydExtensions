@@ -29,7 +29,7 @@ namespace Rhetos.FloydExtensions
 	[ExportMetadata(MefProvider.Implements, typeof(EntryInfo))]
 	public class EntryCodeGenerator : ITypeScriptGeneratorPlugin
 	{
-		public static readonly CsTag<EntryInfo> EntryValueTag = new CsTag<EntryInfo>("TsHardcodedEntryValue", TagType.Appendable, ", {0}", @", {0}");
+		public static readonly CsTag<EntryInfo> EntryValueTag = new("TsHardcodedEntryValue", TagType.Appendable);
 
 		public void GenerateCode(IConceptInfo conceptInfo, ICodeBuilder codeBuilder)
 		{

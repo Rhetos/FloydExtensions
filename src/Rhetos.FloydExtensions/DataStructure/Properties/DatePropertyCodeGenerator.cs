@@ -37,5 +37,7 @@ namespace Rhetos.FloydExtensions
         public DatePropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }
+
+        public string GetTypeScriptLiteral(string value) => $"new Date(\"{value}\")";
     }
 }

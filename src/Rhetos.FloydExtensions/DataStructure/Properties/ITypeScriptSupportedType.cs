@@ -26,9 +26,16 @@ namespace Rhetos.FloydExtensions
 	public interface ITypeScriptSupportedType
 	{
 		string PropertyType { get; }
+
 		string TypeScriptType { get; }
+
 		Type DslType { get; }
-	}
+
+        /// <summary>
+        /// Returns null if the value is not supported in typescript.
+        /// </summary>
+        string GetTypeScriptLiteral(string value);
+    }
 
 	public static class TypeScriptSupportedTypeExtensions
 	{

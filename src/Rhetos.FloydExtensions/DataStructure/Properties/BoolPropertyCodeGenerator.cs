@@ -37,5 +37,7 @@ namespace Rhetos.FloydExtensions
         public BoolPropertyCodeGenerator(IDslModel dslModel) : base(dslModel)
         {
         }
+
+        public string GetTypeScriptLiteral(string value) => value.TrimEnd().ToUpperInvariant() switch { "1" => "true", "0" => "false", "TRUE" => "true", "FALSE" => "false", _ => null };
     }
 }

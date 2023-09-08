@@ -46,21 +46,25 @@ namespace Rhetos.FloydExtensions
 
 		private string Code(EntryValueInfo info)
 		{
-			return $"{info.PropertyName}: {GetTypeScriptValue(info)}";
-		}
+            var (literal, error) = GetTypeScriptValue(info);
 
-		private string GetTypeScriptValue(EntryValueInfo info)
+			if (error == null)
+	            return $", {info.PropertyName}: {literal}";
+			else
+				return $"/*, {error} {info.PropertyName}: {literal}*/";
+        }
+
+		private (string Literal, string Error) GetTypeScriptValue(EntryValueInfo info)
 		{
-			var type = _supportedTypes.SingleOrDefault(x => x.DslType.IsInstanceOfType(info.Property));
+            var type = _supportedTypes.SingleOrDefault(x => x.DslType.IsInstanceOfType(info.Property));
 			if (type == null)
-				throw new DslSyntaxException($"Property {info.Property.FullName} is not supported for Hardcoded concept.");
+				return (info.Value, $"Unsupported type");
 
-			var stringTypes = new[] {"string"};
+			var literal = type.GetTypeScriptLiteral(info.Value);
+			if (literal == null)
+				return (info.Value, $"Unsupported value");
 
-			if (stringTypes.Contains(type.TypeScriptType))
-				return $"'{info.Value}'";
-
-			return info.Value;
+			return (literal, null);
 		}
 	}
 }

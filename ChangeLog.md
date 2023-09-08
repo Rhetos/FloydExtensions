@@ -1,5 +1,9 @@
 # Rhetos.FloydExtensions release notes
 
+## 5.2.0 (TO BE RELEASED)
+
+* Support for Hardcoded entity with Bool, Date or DateTime properties. This fixes typescript error "Type 'number' is not assignable to type 'boolean'." for Bool properties.
+
 ## 5.1.0 (2023-03-16)
 
 * Bugfix: **Hardcoded** items array is now properly typed.
