@@ -27,7 +27,11 @@ Module Floyd
 		LongString Value;
 	}
 
-	Computed GetStorage 'repository => {
+	Computed GetStorage 'repository =>
+	{
+		if (!_executionContext.UserInfo.IsUserRecognized)
+			return Array.Empty<GetStorage>();
+
 		var userStorage = repository.Floyd.Storage.Query()
 			.Where(x => x.UserName == _executionContext.UserInfo.UserName);
 		var commonStorage = repository.Floyd.Storage.Query()
