@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rhetos" Version="5.0.0" />
-    <PackageReference Include="Rhetos.CommonConcepts" Version="5.0.0" />
-    <PackageReference Include="Rhetos.ComplexEntity" Version="5.0.0" />
-    <PackageReference Include="Rhetos.RestGenerator" Version="5.0.0" />
-    <PackageReference Include="Rhetos.Host.AspNet" Version="5.0.0" />
+    <PackageReference Include="Rhetos" Version="6.0.0-dev24011711054c6feb" />
+    <PackageReference Include="Rhetos.CommonConcepts" Version="6.0.0-dev24011711054c6feb" />
+    <PackageReference Include="Rhetos.ComplexEntity" Version="6.0.0-dev2401191129eef6f59" />
+    <PackageReference Include="Rhetos.RestGenerator" Version="6.0.0-dev24011711267bd4d47" />
+    <PackageReference Include="Rhetos.Host.AspNet" Version="6.0.0-dev24011711054c6feb" />
   </ItemGroup>
 
 </Project>

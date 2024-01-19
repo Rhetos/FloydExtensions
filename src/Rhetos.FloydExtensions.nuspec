@@ -12,16 +12,16 @@
     <releaseNotes>
 </releaseNotes>
     <dependencies>
-      <dependency id="Rhetos.CommonConcepts" version="5.0.0" />
-      <dependency id="Rhetos.ComplexEntity" version="5.0.0" />
-      <dependency id="Rhetos.RestGenerator" version="5.0.0" />
-      <dependency id="Rhetos.Host.AspNet" version="5.0.0" />
+      <dependency id="Rhetos.CommonConcepts" version="6.0.0-dev24011711054c6feb" />
+      <dependency id="Rhetos.ComplexEntity" version="6.0.0-dev2401191129eef6f59" />
+      <dependency id="Rhetos.RestGenerator" version="6.0.0-dev24011711267bd4d47" />
+      <dependency id="Rhetos.Host.AspNet" version="6.0.0-dev24011711054c6feb" />
     </dependencies>
   </metadata>
   <files>
     <file src="Rhetos.FloydExtensions\DslScripts\**\*" target="DslScripts" />
-    <file src="Rhetos.FloydExtensions\bin\Debug\net5.0\Rhetos.FloydExtensions.dll" target="lib\net5.0" />
-    <file src="Rhetos.FloydExtensions\bin\Debug\net5.0\Rhetos.FloydExtensions.pdb" target="lib\net5.0" />
+    <file src="Rhetos.FloydExtensions\bin\Debug\net8.0\Rhetos.FloydExtensions.dll" target="lib\net8.0" />
+    <file src="Rhetos.FloydExtensions\bin\Debug\net8.0\Rhetos.FloydExtensions.pdb" target="lib\net8.0" />
     <file src="..\Readme.md" target="" />
     <file src="..\ChangeLog.md" target="" />
   </files>
