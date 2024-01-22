@@ -13,7 +13,7 @@
 		};
 	}'
 	{
-		RepositoryUses '_metadataProvider' 'Rhetos.FloydExtensions.MetadataProvider, Rhetos.FloydExtensions';
+		RepositoryUses '_metadataProvider' 'Rhetos.FloydExtensions.MetadataProvider';
 	}
 	
 }
