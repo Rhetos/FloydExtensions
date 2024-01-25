@@ -9,13 +9,13 @@
     <description>This package is a plugin for Rhetos development platform.</description>
     <copyright>Copyright Omega software 2019</copyright>
     <tags>Rhetos plugin</tags>
-    <releaseNotes>
-</releaseNotes>
     <dependencies>
-      <dependency id="Rhetos.CommonConcepts" version="6.0.0-dev24011711054c6feb" />
-      <dependency id="Rhetos.ComplexEntity" version="6.0.0-dev2401191129eef6f59" />
-      <dependency id="Rhetos.RestGenerator" version="6.0.0-dev24011711267bd4d47" />
-      <dependency id="Rhetos.Host.AspNet" version="6.0.0-dev24011711054c6feb" />
+      <group targetFramework="net8.0">
+        <dependency id="Rhetos.CommonConcepts" version="6.0.0-dev24011711054c6feb" />
+        <dependency id="Rhetos.ComplexEntity" version="6.0.0-dev2401191129eef6f59" />
+        <dependency id="Rhetos.RestGenerator" version="6.0.0-dev24011711267bd4d47" />
+        <dependency id="Rhetos.Host.AspNet" version="6.0.0-dev24011711054c6feb" />
+      </group>
     </dependencies>
   </metadata>
   <files>
