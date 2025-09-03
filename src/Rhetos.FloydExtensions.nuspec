@@ -5,6 +5,7 @@
     <version>6.0.0-dev</version>
     <authors>Omega software</authors>
     <owners>Omega software</owners>
+    <license type="expression">AGPL-3.0-only</license>
     <projectUrl>https://github.com/rhetos/rhetos</projectUrl>
     <description>This package is a plugin for Rhetos development platform.</description>
     <readme>docs\Readme.md</readme>
@@ -12,10 +13,11 @@
     <tags>Rhetos plugin</tags>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Rhetos.CommonConcepts" version="6.0.0-dev24011711054c6feb" />
-        <dependency id="Rhetos.ComplexEntity" version="6.0.0-dev2401191129eef6f59" />
-        <dependency id="Rhetos.RestGenerator" version="6.0.0-dev24011711267bd4d47" />
-        <dependency id="Rhetos.Host.AspNet" version="6.0.0-dev24011711054c6feb" />
+        <dependency id="Rhetos" version="6.0.0" />
+        <dependency id="Rhetos.CommonConcepts" version="6.0.0" />
+        <dependency id="Rhetos.ComplexEntity" version="6.0.0" />
+        <dependency id="Rhetos.RestGenerator" version="6.0.0" />
+        <dependency id="Rhetos.Host.AspNet" version="6.0.0" />
       </group>
     </dependencies>
   </metadata>

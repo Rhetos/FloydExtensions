@@ -12,7 +12,7 @@
     <releaseNotes>
 </releaseNotes>
     <dependencies>
-      <dependency id="Rhetos.CommonConcepts" version="6.0.0-dev24011711054c6feb" />
+      <dependency id="Rhetos.CommonConcepts" version="6.0.0" />
     </dependencies>
   </metadata>
   <files>

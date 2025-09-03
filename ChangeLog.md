@@ -1,5 +1,9 @@
 # Rhetos.FloydExtensions release notes
 
+## 6.0.0 (2025-09-03)
+
+* Update to .NET 8 and Rhetos 6.
+
 ## 5.2.0 (2025-09-03)
 
 * Support for **Hardcoded** entity with Bool, Date or DateTime properties. This fixes typescript error "Type 'number' is not assignable to type 'boolean'." for Bool properties.
