@@ -7,20 +7,24 @@
     <owners>Omega software</owners>
     <projectUrl>https://github.com/rhetos/rhetos</projectUrl>
     <description>This package is a plugin for Rhetos development platform.</description>
+    <readme>docs\Readme.md</readme>
     <copyright>Copyright Omega software 2019</copyright>
     <tags>Rhetos plugin</tags>
     <releaseNotes>
 </releaseNotes>
     <dependencies>
+      <dependency id="Rhetos" version="5.0.0" />
       <dependency id="Rhetos.CommonConcepts" version="5.0.0" />
       <dependency id="Rhetos.ComplexEntity" version="5.0.0" />
+      <dependency id="Rhetos.RestGenerator" version="5.0.0" />
+      <dependency id="Rhetos.Host.AspNet" version="5.0.0" />
     </dependencies>
   </metadata>
   <files>
     <file src="Rhetos.FloydExtensions\DslScripts\**\*" target="DslScripts" />
     <file src="Rhetos.FloydExtensions\bin\Debug\net5.0\Rhetos.FloydExtensions.dll" target="lib\net5.0" />
     <file src="Rhetos.FloydExtensions\bin\Debug\net5.0\Rhetos.FloydExtensions.pdb" target="lib\net5.0" />
-    <file src="..\Readme.md" target="" />
+    <file src="..\Readme.md" target="docs" />
     <file src="..\ChangeLog.md" target="" />
   </files>
 </package>
