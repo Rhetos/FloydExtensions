@@ -12,14 +12,20 @@ Module Floyd
 	Action SaveStorageItem '(prms, repository, userInfo) => 
 	{
 		var item = repository.Floyd.Storage.Query().FirstOrDefault(x => x.StorageKey == prms.Key && x.UserName == userInfo.UserName);
-		if (item != null)
+		if (string.IsNullOrWhiteSpace(prms.Value))
 		{
-			item.Value = prms.Value;
-			repository.Floyd.Storage.Update(item);
+			if (item != null)
+				repository.Floyd.Storage.Delete(item);
 		}
 		else
 		{
-			repository.Floyd.Storage.Insert(new Floyd.Storage { UserName = userInfo.UserName, StorageKey = prms.Key, Value = prms.Value});
+			if (item != null)
+			{
+				item.Value = prms.Value;
+				repository.Floyd.Storage.Update(item);
+			}
+			else
+				repository.Floyd.Storage.Insert(new Floyd.Storage { UserName = userInfo.UserName, StorageKey = prms.Key, Value = prms.Value});
 		}
 	}'
 	{
